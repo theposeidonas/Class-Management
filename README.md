@@ -14,7 +14,26 @@ Takım 4 kişiden oluşur, bunlar;
 
 ### Versiyon Geçmişi
 
-####v0.1
+####v0.0.2
+* Config dosyaları ve composer güncellendi
+* Assets klasörü yüklendi
+* Route ayarlamaları yapıldı
+* Viewlar eklendi
+  * Base model
+  * Master model
+  * Giriş model
+  * Dashboard model
+  * Layoutlar 
+    * Footer Layout
+    * Head Layout
+    * Header Layout
+    * js Layout
+    * Toolbar Layout
+* Controllerlar eklendi
+  * Dashboard Controller
+
+
+####v0.0.1
 
 * Initial Commit
 * Laravel Debugbar Installed

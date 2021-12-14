@@ -12,8 +12,8 @@ return [
     | any other location as required by the application or its packages.
     |
     */
-
-    'name' => env('APP_NAME', 'Laravel'),
+    'version' => '0.0.1',
+    'name' => env('APP_NAME', 'Class Management'),
 
     /*
     |--------------------------------------------------------------------------

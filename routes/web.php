@@ -12,7 +12,5 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','\App\Http\Controllers\Controller@index')->name('sign-in');
+Route::get('/dashboard','\App\Http\Controllers\DashboardController@index')->name('sign-in');
