@@ -18,6 +18,7 @@ Takım 4 kişiden oluşur, bunlar;
 * Config dosyaları ve composer güncellendi
 * Assets klasörü yüklendi
 * Route ayarlamaları yapıldı
+* Searchbar düzenlendi
 * Viewlar eklendi
   * Base model
   * Master model
