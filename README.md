@@ -14,11 +14,30 @@ Takım 4 kişiden oluşur, bunlar;
 
 ### Versiyon Geçmişi
 
+####v0.0.5
+
+* Header düzenlendi
+  * Rotalar Eklendi
+  * İkonlar Düzenlendi
+* Toolbar search toggle hale getirildi
+* Yeni rotalar eklendi (Eklenen viewlara ait rotalar)
+* Viewlar eklendi
+  * information
+    * Panel Hakkında
+    * Öğretmen Duyuruları
+  * modules
+    * Ders Modülü
+    * Öğretmen Modülü
+    * Sınıf Modülü
+    * TimeTable modülü
+  * System
+    * Sistem Yedekleme modülü
+
 ####v0.0.2
 * Config dosyaları ve composer güncellendi
 * Assets klasörü yüklendi
 * Route ayarlamaları yapıldı
-* Searchbar düzenlendi
+* Toolbar Search düzenlendi
 * Viewlar eklendi
   * Base model
   * Master model

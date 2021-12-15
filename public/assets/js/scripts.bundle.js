@@ -1774,3 +1774,24 @@ var KTLayoutSearch = function () {
 KTUtil.onDOMContentLoaded((function () {
     KTLayoutSearch.init()
 })), "undefined" != typeof module && void 0 !== module.exports && (module.exports = KTLayoutSearch);
+
+function search_button_all() {
+    document.getElementById("search_ogretmen").classList.remove("d-none");
+    document.getElementById("search_sinif").classList.remove("d-none");
+    document.getElementById("search_ders").classList.remove("d-none");
+}
+function search_button_ogretmen() {
+    document.getElementById("search_ogretmen").classList.remove("d-none");
+    document.getElementById("search_sinif").classList.add("d-none");
+    document.getElementById("search_ders").classList.add("d-none");
+}
+function search_button_ders() {
+    document.getElementById("search_ogretmen").classList.add("d-none");
+    document.getElementById("search_sinif").classList.add("d-none");
+    document.getElementById("search_ders").classList.remove("d-none");
+}
+function search_button_sinif() {
+    document.getElementById("search_ogretmen").classList.add("d-none");
+    document.getElementById("search_sinif").classList.remove("d-none");
+    document.getElementById("search_ders").classList.add("d-none");
+}

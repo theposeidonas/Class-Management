@@ -52,10 +52,10 @@
                         <!--begin::Categories-->
                         <div data-kt-search-element="categories" class="d-flex overflow-auto position-relative" data-kt-buttons="true">
                             <!--begin::Category items-->
-                            <a class="btn btn-light-primary active rounded-pill me-1 py-2 px-4" data-kt-search-category="all">Hepsi</a>
-                            <a class="btn btn-light-primary rounded-pill me-1 py-2 px-4" data-kt-search-category="targets">Ders</a>
-                            <a class="btn btn-light-primary rounded-pill me-1 py-2 px-4" data-kt-search-category="projects">Sınıf</a>
-                            <a class="btn btn-light-primary rounded-pill me-1 py-2 px-4" data-kt-search-category="users">Öğretmen</a>
+                            <a onclick="search_button_all()" class="btn btn-light-primary active rounded-pill me-1 py-2 px-4" data-kt-search-category="all">Hepsi</a>
+                            <a onclick="search_button_ders()" class="btn btn-light-primary rounded-pill me-1 py-2 px-4" data-kt-search-category="targets">Ders</a>
+                            <a onclick="search_button_sinif()" class="btn btn-light-primary rounded-pill me-1 py-2 px-4" data-kt-search-category="projects">Sınıf</a>
+                            <a onclick="search_button_ogretmen()" class="btn btn-light-primary rounded-pill me-1 py-2 px-4" data-kt-search-category="users">Öğretmen</a>
                             <!--end::Category items-->
                         </div>
                         <!--end::Categories-->
@@ -67,12 +67,12 @@
                             <!--begin::Items-->
                             <div class="scroll-y mh-200px mh-lg-300px my-2 me-n2 pe-2">
 
-                                <div id="ders">
+                                <div id="search_ders">
                                 <!--begin::Category title-->
-                                <h3 class="fs-4 fw-bold m-0 pb-5" data-kt-search-element="category-title">Ders</h3>
+                                <h3 class="fs-4 fw-bold m-0 pb-5 " data-kt-search-element="category-title">Ders</h3>
                                 <!--end::Category title-->
                                 <!--begin::Item-->
-                                <a href="#" class="d-flex align-items-center p-3 rounded bg-state-light bg-state-opacity-50 mb-1" data-kt-search-category="targets">
+                                <a href="#" class="d-flex align-items-center p-3 rounded bg-state-light bg-state-opacity-50 mb-1 pb-10" data-kt-search-category="targets">
                                     <!--begin::Symbol-->
                                     <div class="symbol symbol-30px me-4">
 															<span class="symbol-label bg-light-primary">
@@ -96,12 +96,12 @@
                                 </a>
                                 <!--end::Item-->
                                 </div>
-                                <div id="sinif">
+                                <div id="search_sinif">
                                 <!--begin::Category title-->
-                                <h3 class="fs-4 fw-bold m-0 pt-10 pb-5" data-kt-search-element="category-title">Sınıf</h3>
+                                <h3 class="fs-4 fw-bold m-0  pb-5" data-kt-search-element="category-title">Sınıf</h3>
                                 <!--end::Category title-->
                                 <!--begin::Item-->
-                                <a href="#" class="d-flex align-items-center p-3 rounded bg-state-light bg-state-opacity-50 mb-1" data-kt-search-category="projects">
+                                <a href="#" class="d-flex align-items-center p-3 rounded bg-state-light bg-state-opacity-50 mb-1 pb-10" data-kt-search-category="projects">
                                     <!--begin::Symbol-->
                                     <div class="symbol symbol-30px me-4">
 															<span class="symbol-label bg-light-primary">
@@ -126,11 +126,11 @@
                                 <!--end::Item-->
                                 </div>
                                 <!--begin::Category title-->
-                                <div id="ogretmen">
-                                <h3 class="fs-4 fw-bold m-0 pt-10 pb-5" data-kt-search-element="category-title">Öğretmen</h3>
+                                <div id="search_ogretmen">
+                                <h3 class="fs-4 fw-bold m-0  pb-5" data-kt-search-element="category-title">Öğretmen</h3>
                                 <!--end::Category title-->
                                 <!--begin::Item-->
-                                <a href="#" class="d-flex align-items-center p-3 rounded bg-state-light bg-state-opacity-50 mb-1" data-kt-search-category="users">
+                                <a href="#" class="d-flex align-items-center p-3 rounded bg-state-light bg-state-opacity-50 mb-1 pb-10" data-kt-search-category="users">
                                     <!--begin::Symbol-->
                                     <div class="symbol symbol-30px me-4">
                                         <img src="/assets/media/avatars/avatar.png" alt="">
