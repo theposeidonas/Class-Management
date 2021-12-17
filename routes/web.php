@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// GET ROUTES
+
 // Auth Link
 Route::get('/','\App\Http\Controllers\Controller@index')->name('sign-in');
 
@@ -19,31 +21,20 @@ Route::get('/','\App\Http\Controllers\Controller@index')->name('sign-in');
 Route::get('/dashboard','\App\Http\Controllers\DashboardController@index')->name('dashboard');
 
 //Information Links
-Route::get('/about-panel', function (){
-    return view("information.about");
-})->name('about-panel');
-Route::get('/teacher-notices', function (){
-    return view("information.notices");
-})->name('notices');
+Route::get('/about-panel', '\App\Http\Controllers\InformationController@about_panel')->name('about-panel');
+Route::get('/teacher-notices', '\App\Http\Controllers\InformationController@teacher_notices')->name('notices');
 
 //Modules Links
-Route::get('/teacher', function (){
-    return view("modules.teachers");
-})->name('teachers');
-Route::get('/class', function (){
-    return view("modules.class");
-})->name('class');
-Route::get('/classroom', function (){
-    return view("modules.classroom");
-})->name('classroom');
-Route::get('/timetable', function (){
-    return view("modules.timetable");
-})->name('timetable');
+Route::get('/teacher', '\App\Http\Controllers\ModulesController@teacher_module')->name('teachers');
+Route::get('/class', '\App\Http\Controllers\ModulesController@class_module')->name('class');
+Route::get('/classroom', '\App\Http\Controllers\ModulesController@classroom_module')->name('classroom');
+Route::get('/timetable', '\App\Http\Controllers\ModulesController@timetable_module')->name('timetable');
 
 //System Links
-Route::get('/backup', function (){
-    return view("system.backup");
-})->name('backup');
+Route::get('/backup', '\App\Http\Controllers\BackupController@index')->name('backup');
+
+//Resources Links
+Route::get('/version-notes','\App\Http\Controllers\VersionController@index')->name('version-notes');
 
 
 

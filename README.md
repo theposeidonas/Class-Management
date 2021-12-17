@@ -14,7 +14,20 @@ Takım 4 kişiden oluşur, bunlar;
 
 ### Versiyon Geçmişi
 
-####v0.0.5
+#### v0.0.6
+
+* Route'lar controllerlara çevirildi
+* Footer düzenlendi
+* Header linkleri düzenlendi
+* Controllerlar eklendi
+  * BackupController
+  * InformationController
+  * ModulesController
+  * VersionController
+* Viewlar eklendi
+  * Version Notları
+
+#### v0.0.5
 
 * Header düzenlendi
   * Rotalar Eklendi
@@ -33,7 +46,7 @@ Takım 4 kişiden oluşur, bunlar;
   * System
     * Sistem Yedekleme modülü
 
-####v0.0.2
+#### v0.0.2
 * Config dosyaları ve composer güncellendi
 * Assets klasörü yüklendi
 * Route ayarlamaları yapıldı
@@ -53,7 +66,7 @@ Takım 4 kişiden oluşur, bunlar;
   * Dashboard Controller
 
 
-####v0.0.1
+#### v0.0.1
 
 * Initial Commit
 * Laravel Debugbar Installed
