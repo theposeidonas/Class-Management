@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 // GET ROUTES
 
-// Auth Link
+// Login
 Route::get('/','\App\Http\Controllers\Controller@index')->name('sign-in');
 
 //Dashboard Link
-Route::get('/dashboard','\App\Http\Controllers\DashboardController@index')->name('dashboard');
+Route::get('/dashboard','\App\Http\Controllers\DashboardController@index')->name('dashboard')->middleware('auth');
 
 //Information Links
 Route::get('/about-panel', '\App\Http\Controllers\InformationController@about_panel')->name('about-panel');
@@ -35,6 +35,19 @@ Route::get('/backup', '\App\Http\Controllers\BackupController@index')->name('bac
 
 //Resources Links
 Route::get('/version-notes','\App\Http\Controllers\VersionController@index')->name('version-notes');
+
+
+
+//POST Links
+
+// Login post
+Route::post('/login', '\App\Http\Controllers\Controller@login')->name('login_post');
+
+
+
+Route::post('/add_user', '\App\Http\Controllers\UserController@store')->name('add_user');
+Route::post('/delete_user', '\App\Http\Controllers\UserController@delete')->name('delete_user');
+
 
 
 

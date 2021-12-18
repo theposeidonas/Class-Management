@@ -7,7 +7,7 @@
     <link href="/assets/css/timetable.css" rel="stylesheet" type="text/css">
     <script src="/assets/js/timetable.js"></script>
 @endif
-
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <link rel="shortcut icon" href="/assets/media/logos/favicon.ico">
 <!--begin::Fonts-->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700">

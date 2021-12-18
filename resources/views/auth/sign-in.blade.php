@@ -37,8 +37,9 @@
 					<!--end::Logo-->
 					<!--begin::Wrapper-->
 					<div class="w-lg-500px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">
+
 						<!--begin::Form-->
-						<form class="form w-100" novalidate="novalidate" action="#" method="POST">
+						<form class="form w-100" novalidate="novalidate" action="{{ route('login_post') }}" method="POST">
                             @csrf
 							<!--begin::Heading-->
 							<div class="text-center mb-8">
@@ -46,7 +47,10 @@
 								<h1 class="text-dark mb-3">Giriş Yap</h1>
 								<!--end::Title-->
 
-							</div>
+							</div>@if($errors->any())
+                                {{ $errors->first() }}
+                            @endif
+
 							<!--begin::Heading-->
 							<!--begin::Input group-->
 							<div class="fv-row mb-8">
