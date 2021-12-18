@@ -14,6 +14,20 @@ Takım 4 kişiden oluşur, bunlar;
 
 ### Versiyon Geçmişi
 
+#### v0.0.8
+
+* DB migration (Local)
+* Modeller Eklendi
+  * Classroom Model
+  * User Model
+* Route'lar controllerlara çevirildi
+* Auth Eklendi
+* Header linkleri düzenlendi
+* Controllerlar eklendi
+  * ClassroomController
+  * UserController
+
+ 
 #### v0.0.6
 
 * Route'lar controllerlara çevirildi

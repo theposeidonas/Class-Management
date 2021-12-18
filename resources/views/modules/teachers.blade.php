@@ -668,7 +668,7 @@
                     <!--end::Table head-->
                     <!--begin::Table body-->
                     <tbody class="text-gray-600 fw-bold">
-                    @foreach($users as $user)
+                    @foreach($users_list as $user)
                         <!--begin::Table row-->
                         <tr>
                             <!--begin::Checkbox-->

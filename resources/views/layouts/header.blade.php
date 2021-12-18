@@ -327,7 +327,7 @@
                         <!--begin::Menu wrapper-->
                         <div class="cursor-pointer symbol symbol-30px symbol-md-40px" data-kt-menu-trigger="click"
                              data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
-                            <img alt="Avatar" src="/assets/media/avatars/avatar.png">
+                            <img alt="{{ auth()->user()->name }}" src="/assets/media/avatars/{{ auth()->user()->avatar }}">
                         </div>
                         <!--begin::Menu-->
                         <div
@@ -338,15 +338,15 @@
                                 <div class="menu-content d-flex align-items-center px-3">
                                     <!--begin::Avatar-->
                                     <div class="symbol symbol-50px me-5">
-                                        <img alt="Avatar" src="/assets/media/avatars/avatar.png">
+                                        <img alt="{{ auth()->user()->name }}" src="/assets/media/avatars/{{ auth()->user()->avatar }}">
                                     </div>
                                     <!--end::Avatar-->
                                     <!--begin::Username-->
                                     <div class="d-flex flex-column">
-                                        <div class="fw-bolder d-flex align-items-center fs-5">Baran Arda
+                                        <div class="fw-bolder d-flex align-items-center fs-5">{{ auth()->user()->name }}
                                             <span class="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">Yönetici</span>
                                         </div>
-                                        <a href="#" class="fw-bold text-muted text-hover-primary fs-7">baran9arda@gmail.com</a>
+                                        <a href="#" class="fw-bold text-muted text-hover-primary fs-7">{{ auth()->user()->email }}</a>
                                     </div>
                                     <!--end::Username-->
                                 </div>
@@ -424,7 +424,7 @@
 
                             <!--begin::Menu item-->
                             <div class="menu-item px-5">
-                                <a href="#" class="menu-link px-5">Çıkış Yap</a>
+                                <a href="{{ route('logout_post') }}" class="menu-link px-5">Çıkış Yap</a>
                             </div>
                             <!--end::Menu item-->
 

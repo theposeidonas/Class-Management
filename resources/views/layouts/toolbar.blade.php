@@ -129,21 +129,23 @@
                                 <div id="search_ogretmen">
                                 <h3 class="fs-4 fw-bold m-0  pb-5" data-kt-search-element="category-title">Öğretmen</h3>
                                 <!--end::Category title-->
+                                @foreach($users_list as $user)
                                 <!--begin::Item-->
                                 <a href="#" class="d-flex align-items-center p-3 rounded bg-state-light bg-state-opacity-50 mb-1 pb-10" data-kt-search-category="users">
                                     <!--begin::Symbol-->
                                     <div class="symbol symbol-30px me-4">
-                                        <img src="/assets/media/avatars/avatar.png" alt="">
+                                        <img src="/assets/media/avatars/{{ auth()->user()->avatar }}" alt="{{ $user->name }}">
                                     </div>
                                     <!--end::Symbol-->
                                     <!--begin::Title-->
                                     <div class="fw-bold">
-                                        <span class="fs-6 text-gray-800 me-2">Karina Clark</span>
-                                        <span class="badge badge-light">Marketing Manager</span>
+                                        <span class="fs-6 text-gray-800 me-2">{{ $user->name }}</span>
+                                        <span class="badge badge-light">{{ $user->faculty }}</span>
                                     </div>
                                     <!--end::Title-->
                                 </a>
                                 <!--end::Item-->
+                                    @endforeach
                                 </div>
 
                             </div>

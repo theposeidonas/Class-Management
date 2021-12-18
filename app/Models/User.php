@@ -25,6 +25,11 @@ class User extends Authenticatable
         'email',
         'password',
         'faculty',
+        'last_login',
+        'last_login_ip',
+        'created_at',
+        'updated_at',
+
 
     ];
 
