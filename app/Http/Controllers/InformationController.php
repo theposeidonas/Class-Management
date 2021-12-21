@@ -1,18 +1,24 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class InformationController extends Controller
 {
     public function about_panel()
     {
-        return view("information.about");
+        $Users=User::get();
+        return view("information.about", [
+            'users_list'=>$Users,
+        ]);
     }
 
     public function teacher_notices()
     {
-        return view("information.notices");
+        $Users=User::get();
+        return view("information.notices", [
+            'users_list'=>$Users,
+        ]);
     }
 }

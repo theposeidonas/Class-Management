@@ -20,6 +20,7 @@ class ModulesController extends Controller
         $Users=User::get();
         return view("modules.teachers", [
             'users_list'=>$Users,
+
         ]);
     }
     public function class_module()

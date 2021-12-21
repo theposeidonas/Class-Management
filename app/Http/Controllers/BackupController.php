@@ -1,13 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class BackupController extends Controller
 {
     public function index()
     {
-        return view("system.backup");
+        $Users=User::get();
+        return view("system.backup", [
+            'users_list'=>$Users,
+        ]);
     }
 }
