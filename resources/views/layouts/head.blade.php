@@ -1,5 +1,6 @@
 <title>@yield('title') | Class Management System</title>
 <meta charset="utf-8">
+@php(setlocale(LC_ALL, 'tr_TR.UTF-8', 'tr_TR', 'tr', 'turkish'))
 <meta name="description" content="@yield('description')">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 @php($route = Route::currentRouteName())

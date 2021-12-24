@@ -9,8 +9,10 @@ class BackupController extends Controller
     public function index()
     {
         $Users=User::get();
+        $backups=glob('backups/*.sql');
         return view("system.backup", [
             'users_list'=>$Users,
+            'backups'=>$backups,
         ]);
     }
 }

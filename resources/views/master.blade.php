@@ -1,6 +1,7 @@
 @extends("../base")
 <!--begin::Body-->
 @section('body')
+
     <body id="kt_body" style="background-image: url(/assets/media/patterns/header-bg-dark.png)" class="dark-mode header-fixed header-tablet-and-mobile-fixed toolbar-enabled">
     <!--begin::Main-->
     <!--begin::Root-->

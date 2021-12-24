@@ -717,8 +717,8 @@
 
                             <!--begin::Joined-->
 
-                            <td>
-                                {{ $user->created_at->format("d/m/Y") }}</td>
+                            <td>@php(setlocale(LC_ALL, 'tr_TR.UTF-8', 'tr_TR', 'tr', 'turkish'))
+                                {{ strftime("%e %B %Y %A\n",strtotime($user->created_at)) }}</td>
                             <!--begin::Joined-->
                             <!--begin::Action=-->
                             <td class="text-end">

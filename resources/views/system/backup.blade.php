@@ -5,6 +5,7 @@
 <!--end::Head-->
 <!--begin::Body-->
 @section('post')
+    @php(setlocale(LC_ALL, 'tr_TR.UTF-8', 'tr_TR', 'tr', 'turkish'))
                 <!--begin::Post-->
                 <div class="content flex-row-fluid" id="kt_content">
                     <!--begin::Card-->
@@ -164,6 +165,7 @@
                                 <!--end::Table head-->
                                 <!--begin::Table body-->
                                 <tbody class="fw-bold text-gray-600">
+                                @foreach($backups as $backup)
                                 <tr>
                                     <!--begin::Checkbox-->
                                     <td style="display:none;">
@@ -183,15 +185,15 @@
 </svg>
 														</span>
                                             <!--end::Svg Icon-->
-                                            <a href="#" class="text-gray-800 text-hover-primary">12-aralik-2021-yedek.sql</a>
+                                            <a href="#" class="text-gray-800 text-hover-primary">{{ basename($backup) }}</a>
                                         </div>
                                     </td>
                                     <!--end::Name=-->
                                     <!--begin::Size-->
-                                    <td>489 KB</td>
+                                    <td>{{ round(filesize($backup) / 1024, 2) }} KB</td>
                                     <!--end::Size-->
                                     <!--begin::Last modified-->
-                                    <td>05 May 2021, 6:05 pm</td>
+                                    <td>{{ strftime("%e %B %Y %A\n", filemtime($backup)) }}</td>
                                     <!--end::Last modified-->
                                     <!--begin::Actions-->
                                     <td class="text-end" data-kt-filemanager-table="action_dropdown">
@@ -282,7 +284,7 @@
                                     </td>
                                     <!--end::Actions-->
                                 </tr>
-
+                                @endforeach
 
                                 </tbody>
                                 <!--end::Table body-->
