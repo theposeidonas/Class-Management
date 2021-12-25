@@ -79,7 +79,7 @@
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
-                                        <span class="menu-title">Hoca Duyuruları</span>
+                                        <span class="menu-title">Öğretmen Duyuruları</span>
                                     </a>
                                 </div>
 
@@ -213,7 +213,7 @@
                                     </a>
                                 </div>
                                 <div class="menu-item">
-                                    <a class="menu-link py-3" href="#">
+                                    <a class="menu-link py-3" href="{{ route('do-backup') }}">
 															<span class="menu-icon">
 																<!--begin::Svg Icon | path: icons/duotune/layouts/lay009.svg-->
 																<span class="svg-icon svg-icon-2">

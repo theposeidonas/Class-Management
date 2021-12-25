@@ -31,11 +31,11 @@
                                 <div class="d-flex flex-column">
                                     <h2 class="mb-1">Yedek Yöneticisi</h2>
                                     <div class="text-muted fw-bolder">
-                                        <a href="#">CMS</a>
+                                        <a href="{{ route('dashboard') }}">CMS</a>
                                         <span class="mx-3">|</span>
                                         <a href="#">Yedek Yöneticisi</a>
-                                        <span class="mx-3">|</span>2.6 MB
-                                        <span class="mx-3">|</span>156 Yedek</div>
+                                        <span class="mx-3">|</span>{{ round($foldersize/1024 ,3 ) }} MB
+                                        <span class="mx-3">|</span>{{ count(glob('backups' . "*.sql")) }} Yedek</div>
                                 </div>
                                 <!--end::Title-->
                             </div>
@@ -90,7 +90,7 @@
                                 <!--begin::Toolbar-->
                                 <div class="d-flex justify-content-end" data-kt-filemanager-table-toolbar="base">
                                     <!--begin::Back to folders-->
-                                    <a href="#" class="btn btn-icon btn-light-primary me-3">
+                                    <a href="{{ route('do-backup') }}" class="btn btn-icon btn-light-primary me-3">
                                         <!--begin::Svg Icon | path: icons/duotune/arrows/arr078.svg-->
                                         <span class="svg-icon svg-icon-2">
 													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -193,62 +193,26 @@
                                     <td>{{ round(filesize($backup) / 1024, 2) }} KB</td>
                                     <!--end::Size-->
                                     <!--begin::Last modified-->
-                                    <td>{{ strftime("%e %B %Y %A\n", filemtime($backup)) }}</td>
+                                    <td>{{ strftime("%e %B %Y %A, %H:%M\n", filemtime($backup)) }}</td>
                                     <!--end::Last modified-->
                                     <!--begin::Actions-->
                                     <td class="text-end" data-kt-filemanager-table="action_dropdown">
                                         <div class="d-flex justify-content-end">
                                             <!--begin::Share link-->
-                                            <div class="ms-2" data-kt-filemanger-table="copy_link">
-                                                <button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                            <div class="ms-2">
+
+                                                <a href="{{ route('download-backup', ['file'=>substr($backup, 8)]) }}" class="btn btn-sm btn-icon btn-light btn-active-light-primary">
                                                     <!--begin::Svg Icon | path: icons/duotune/coding/cod007.svg-->
                                                     <span class="svg-icon svg-icon-5 m-0">
 																	<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-<path opacity="0.3" d="M5 16C3.3 16 2 14.7 2 13C2 11.3 3.3 10 5 10H5.1C5 9.7 5 9.3 5 9C5 6.2 7.2 4 10 4C11.9 4 13.5 5 14.3 6.5C14.8 6.2 15.4 6 16 6C17.7 6 19 7.3 19 9C19 9.4 18.9 9.7 18.8 10C18.9 10 18.9 10 19 10C20.7 10 22 11.3 22 13C22 14.7 20.7 16 19 16H5ZM8 13.6H16L12.7 10.3C12.3 9.89999 11.7 9.89999 11.3 10.3L8 13.6Z" fill="black"/>
-<path d="M11 13.6V19C11 19.6 11.4 20 12 20C12.6 20 13 19.6 13 19V13.6H11Z" fill="black"/>
+<path opacity="0.3" d="M19 15C20.7 15 22 13.7 22 12C22 10.3 20.7 9 19 9C18.9 9 18.9 9 18.8 9C18.9 8.7 19 8.3 19 8C19 6.3 17.7 5 16 5C15.4 5 14.8 5.2 14.3 5.5C13.4 4 11.8 3 10 3C7.2 3 5 5.2 5 8C5 8.3 5 8.7 5.1 9H5C3.3 9 2 10.3 2 12C2 13.7 3.3 15 5 15H19Z" fill="black"/>
+<path d="M13 17.4V12C13 11.4 12.6 11 12 11C11.4 11 11 11.4 11 12V17.4H13Z" fill="black"/>
+<path opacity="0.3" d="M8 17.4H16L12.7 20.7C12.3 21.1 11.7 21.1 11.3 20.7L8 17.4Z" fill="black"/>
 </svg>
 																</span>
                                                     <!--end::Svg Icon-->
-                                                </button>
-                                                <!--begin::Menu-->
-                                                <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-300px" data-kt-menu="true">
-                                                    <!--begin::Card-->
-                                                    <div class="card card-flush">
-                                                        <div class="card-body p-5">
-                                                            <!--begin::Loader-->
-                                                            <div class="d-flex" data-kt-filemanger-table="copy_link_generator">
-                                                                <!--begin::Spinner-->
-                                                                <div class="me-5" data-kt-indicator="on">
-																				<span class="indicator-progress">
-																					<span class="spinner-border spinner-border-sm align-middle ms-2"></span>
-																				</span>
-                                                                </div>
-                                                                <!--end::Spinner-->
-                                                                <!--begin::Label-->
-                                                                <div class="fs-6 text-dark">Generating Share Link...</div>
-                                                                <!--end::Label-->
-                                                            </div>
-                                                            <!--end::Loader-->
-                                                            <!--begin::Link-->
-                                                            <div class="d-flex flex-column text-start d-none" data-kt-filemanger-table="copy_link_result">
-                                                                <div class="d-flex">
-                                                                    <!--begin::Svg Icon | path: icons/duotune/arrows/arr085.svg-->
-                                                                    <span class="svg-icon svg-icon-2 svg-icon-success me-3">
-																					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none">
-																						<path d="M9.89557 13.4982L7.79487 11.2651C7.26967 10.7068 6.38251 10.7068 5.85731 11.2651C5.37559 11.7772 5.37559 12.5757 5.85731 13.0878L9.74989 17.2257C10.1448 17.6455 10.8118 17.6455 11.2066 17.2257L18.1427 9.85252C18.6244 9.34044 18.6244 8.54191 18.1427 8.02984C17.6175 7.47154 16.7303 7.47154 16.2051 8.02984L11.061 13.4982C10.7451 13.834 10.2115 13.834 9.89557 13.4982Z" fill="black"></path>
-																					</svg>
-																				</span>
-                                                                    <!--end::Svg Icon-->
-                                                                    <div class="fs-6 text-dark">Geri yedekleme tamamlandı!</div>
-                                                                </div>
+                                                </a>
 
-                                                            </div>
-                                                            <!--end::Link-->
-                                                        </div>
-                                                    </div>
-                                                    <!--end::Card-->
-                                                </div>
-                                                <!--end::Menu-->
                                             </div>
                                             <!--end::Share link-->
                                             <!--begin::More-->
@@ -268,12 +232,12 @@
                                                 <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-150px py-4" data-kt-menu="true">
                                                     <!--begin::Menu item-->
                                                     <div class="menu-item px-3">
-                                                        <a href="#" class="menu-link px-3">Dosyayı indir</a>
+                                                        <a href="{{ route('restore', ['file'=>substr($backup, 8)]) }}" class="menu-link px-3">Geri Yükle</a>
                                                     </div>
                                                     <!--end::Menu item-->
                                                     <!--begin::Menu item-->
                                                     <div class="menu-item px-3">
-                                                        <a href="#" class="menu-link text-danger px-3" data-kt-filemanager-table-filter="delete_row">Sil</a>
+                                                        <a href="{{ route('delete', ['file'=>substr($backup, 8)]) }}" class="menu-link text-danger px-3">Sil</a>
                                                     </div>
                                                     <!--end::Menu item-->
                                                 </div>

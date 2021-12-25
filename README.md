@@ -1,7 +1,25 @@
-## Class Management
+# Class Management
 
-Class Management sistemi kısaca üniversite ortamında fakülte yöneticilerinin kullanabileceği ve fakülte sınıflarına ders atamalarını yapabileceği, çakışan dersleri kontrol edebileceği bir yönetim sistemidir.
+Class Management sistemi kısaca üniversite ortamında fakülte yöneticilerinin kullanabileceği ve fakülte sınıflarına ders
+atamalarını yapabileceği, çakışan dersleri kontrol edebileceği bir yönetim sistemidir.
 
+>Aktif domain: [class.webremium.com]()
+
+`Laravel Debugbar : Açık`
+
+`Öğretmenler Modülü : Aktif`
+
+`Sınıf Modülü : Aktif`
+
+`Dersler Modülü : Yapım Aşamasında`
+
+`Sınıf Zaman Tablosu: Yapım Aşamasında`
+
+`Sistem Yedekleme: Aktif`
+
+`Hızlı Arama: Yapım Aşamasında`
+
+`Kullanım Klavuzu ve Dökümantasyon: Oluşturulmadı`
 
 ### Takım
 
@@ -12,7 +30,34 @@ Takım 4 kişiden oluşur, bunlar;
 * Enis Göktaş
 * Doğacan Usta
 
-### Versiyon Geçmişi
+## Versiyon Geçmişi
+
+
+#### v0.2
+* Ana sayfa gereksiz HTML kaldırıldı
+* Header linkleri düzenlendi 
+  * Hızlı Sistem yedekleme linki eklendi
+  * Duyurular placeholder düzeltildi
+* Versiyon notları sayfası düzenlendi
+* Sistem Yedekleri Aktifleştirildi
+  * Sadece sınıflar için yedek alınabilir
+  * Sistem yedekleri sayfasında butonlar aktifleştirildi
+    * Yedek al butonu
+    * Yedeği indir butonu
+    * Yedek sil
+    * Yedeği geri yükle
+  * Yedekleme verileri aktif (Yedek boyutları, tarih, yedek sayısı vb.)
+* Sistem subdomain üzerinde çalışacak şekilde yeniden yapılandırıldı.
+  * .htaccess dosyaları düzenlendi.
+
+#### v0.1.0
+* Remote Host Fix (Subdomain problemi)
+* JS routes fix
+* Yedekleme sistemi klasörü belirlendi (/public/backups)
+* Yedekleme sistemi dosya listelemesi düzeltildi
+* İbrahim Erşan yönetici olarak eklendi
+* 
+
 
 #### v0.0.8
 
@@ -85,7 +130,11 @@ Takım 4 kişiden oluşur, bunlar;
 * Initial Commit
 * Laravel Debugbar Installed
 
+### Yapım Aşamasında Olanlar
 
+- Dersler Modülü
+- Öğretmen Duyuruları
+- Full Timetable sayfası (CSS JS sorunları bulunuyor yapım aşamasında)
 
 ### License
 

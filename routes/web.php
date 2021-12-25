@@ -36,6 +36,11 @@ Route::get('/backup', '\App\Http\Controllers\BackupController@index')->name('bac
 //Resources Links
 Route::get('/version-notes','\App\Http\Controllers\VersionController@index')->name('version-notes')->middleware('auth');
 
+//Backup Links
+Route::get('/do-backup', '\App\Http\Controllers\BackupController@backup')->name('do-backup')->middleware('auth');
+Route::get('/download-backup', '\App\Http\Controllers\BackupController@download')->name('download-backup')->middleware('auth');
+Route::get('/restore-backup', '\App\Http\Controllers\BackupController@restore')->name('restore')->middleware('auth');
+Route::get('/delete-backup', '\App\Http\Controllers\BackupController@delete')->name('delete')->middleware('auth');
 
 
 //POST Links

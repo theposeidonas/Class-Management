@@ -14,10 +14,10 @@
             <!--begin::Intro-->
             <div class="mb-20">
                 <!--begin::Title-->
-                <h1 class="fs-2x text-gray-800 w-bolder mb-6">Duyurular</h1>
+                <h1 class="fs-2x text-gray-800 w-bolder mb-6">Versiyon Notları</h1>
                 <!--end::Title-->
                 <!--begin::Text-->
-                <p class="fw-bold fs-4 text-gray-600 mb-2">Öğretmenlerin sistemi takip edebilmesi için yöneticiler tarafından oluşturulmuş tüm duyurular aşağıdadır.</p>
+                <p class="fw-bold fs-4 text-gray-600 mb-2">Her değişiklikten sonra tutulan versiyon notları ilgili kişilerin okuması için Readme.md dosyasından buraya aktarılmaktadır.</p>
                 <!--end::Text-->
             </div>
             <!--end::Intro-->
