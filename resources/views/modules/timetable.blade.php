@@ -17,224 +17,124 @@
                     <h1 class="fs-2x text-gray-800 w-bolder mb-6">Tüm Sınıf Tablosu</h1>
                     <!--end::Title-->
                     <!--begin::Text-->
-                    <p class="fw-bold fs-4 text-gray-600 mb-2">Tüm sınıflara ait haftalık tablo aşağıdadır. İstediğiniz zamana tıklayarak o saatteki tüm dersleri ve sınıfları görebilirsiniz.</p>
+                    <p class="fw-bold fs-4 text-gray-600 mb-2">Tüm sınıflara ait haftalık tablo aşağıdadır. İstediğiniz
+                        zamana tıklayarak o saatteki tüm dersleri ve sınıfları görebilirsiniz.</p>
                     <!--end::Text-->
                 </div>
                 <!--end::Intro-->
                 <!--begin::TimeTable-->
 
                 <div class="cd-schedule loading">
-                    <div class="timeline">
+                    <div class="timeline d-none">
                         <ul>
                             <li><span>09:00</span></li>
-                            <li><span>09:30</span></li>
                             <li><span>10:00</span></li>
-                            <li><span>10:30</span></li>
                             <li><span>11:00</span></li>
-                            <li><span>11:30</span></li>
                             <li><span>12:00</span></li>
-                            <li><span>12:30</span></li>
                             <li><span>13:00</span></li>
-                            <li><span>13:30</span></li>
                             <li><span>14:00</span></li>
-                            <li><span>14:30</span></li>
                             <li><span>15:00</span></li>
-                            <li><span>15:30</span></li>
                             <li><span>16:00</span></li>
-                            <li><span>16:30</span></li>
                             <li><span>17:00</span></li>
-                            <li><span>17:30</span></li>
                             <li><span>18:00</span></li>
                         </ul>
                     </div> <!-- .timeline -->
 
                     <div class="events">
                         <ul class="wrap">
-                            <li class="events-group">
-                                <div class="top-info"><span>Monday</span></div>
+                            <li class="events-group" style="list-style-type: none">
+                                <div class="top-info"><span>Pazartesi</span></div>
                                 <ul>
-                                    <li class="single-event" data-start="09:30" data-end="10:30" data-content="event-abs-circuit" data-event="event-1">
+
+                                    @for($i= 9; $i<19; $i++)
+                                    <li class="single-event" data-start="{{ $i }}:00" data-end="{{ $i+1 }}:00"
+                                        data-content="{{ $i }}pzt" data-event="event-2">
                                         <a href="#0">
-                                            <em class="event-name">Abs Circuit</em>
+                                            <em class="event-name">Tüm Dersler</em>
+                                            <div class="d-none event-info">Pazartesi {{ $i }} Dersleri</div>
                                         </a>
+
                                     </li>
 
-                                    <li class="single-event" data-start="11:00" data-end="12:30" data-content="event-rowing-workout" data-event="event-2">
-                                        <a href="#0">
-                                            <em class="event-name">Rowing Workout</em>
-                                        </a>
-                                    </li>
+                                    @endfor
 
-                                    <li class="single-event" data-start="14:00" data-end="15:15"  data-content="event-yoga-1" data-event="event-3">
-                                        <a href="#0">
-                                            <em class="event-name">Yoga Level 1</em>
-                                        </a>
-                                    </li>
+
                                 </ul>
                             </li>
 
-                            <li class="events-group">
-                                <div class="top-info"><span>Tuesday</span></div>
+                            <li class="events-group" style="list-style-type: none">
+                                <div class="top-info"><span>Salı</span></div>
 
                                 <ul>
-                                    <li class="single-event" data-start="10:00" data-end="11:00"  data-content="event-rowing-workout" data-event="event-2">
-                                        <a href="#0">
-                                            <em class="event-name">Rowing Workout</em>
-                                        </a>
-                                    </li>
+                                    @for($i= 9; $i<19; $i++)
+                                        <li class="single-event" data-start="{{ $i }}:00" data-end="{{ $i+1 }}:00"
+                                            data-content="event-abs-circuit" data-event="event-1">
+                                            <a href="#0">
+                                                <em class="event-name">Tüm Dersler</em>
+                                                <div class="d-none event-info">Salı {{ $i }} Dersleri</div>
+                                            </a>
 
-                                    <li class="single-event" data-start="11:30" data-end="13:00"  data-content="event-restorative-yoga" data-event="event-4">
-                                        <a href="#0">
-                                            <em class="event-name">Restorative Yoga</em>
-                                        </a>
-                                    </li>
+                                        </li>
+                                    @endfor
 
-                                    <li class="single-event" data-start="13:30" data-end="15:00" data-content="event-abs-circuit" data-event="event-1">
-                                        <a href="#0">
-                                            <em class="event-name">Abs Circuit</em>
-                                        </a>
-                                    </li>
-
-                                    <li class="single-event" data-start="15:45" data-end="16:45"  data-content="event-yoga-1" data-event="event-3">
-                                        <a href="#0">
-                                            <em class="event-name">Yoga Level 1</em>
-                                        </a>
-                                    </li>
                                 </ul>
                             </li>
 
-                            <li class="events-group">
-                                <div class="top-info"><span>Wednesday</span></div>
+                            <li class="events-group" style="list-style-type: none">
+                                <div class="top-info"><span>Çarşamba</span></div>
 
                                 <ul>
-                                    <li class="single-event" data-start="09:00" data-end="10:15" data-content="event-restorative-yoga" data-event="event-4">
-                                        <a href="#0">
-                                            <em class="event-name">Restorative Yoga</em>
-                                        </a>
-                                    </li>
+                                    @for($i= 9; $i<19; $i++)
+                                        <li class="single-event" data-start="{{ $i }}:00" data-end="{{ $i+1 }}:00"
+                                            data-content="event-abs-circuit" data-event="event-3">
+                                            <a href="#0">
+                                                <em class="event-name">Tüm Dersler</em>
+                                                <div class="d-none event-info">Çarşamba {{ $i }} Dersleri</div>
+                                            </a>
 
-                                    <li class="single-event" data-start="10:45" data-end="11:45" data-content="event-yoga-1" data-event="event-3">
-                                        <a href="#0">
-                                            <em class="event-name">Yoga Level 1</em>
-                                        </a>
-                                    </li>
+                                        </li>
+                                    @endfor
 
-                                    <li class="single-event" data-start="12:00" data-end="13:45"  data-content="event-rowing-workout" data-event="event-2">
-                                        <a href="#0">
-                                            <em class="event-name">Rowing Workout</em>
-                                        </a>
-                                    </li>
-
-                                    <li class="single-event" data-start="13:45" data-end="15:00" data-content="event-yoga-1" data-event="event-3">
-                                        <a href="#0">
-                                            <em class="event-name">Yoga Level 1</em>
-                                        </a>
-                                    </li>
                                 </ul>
                             </li>
 
-                            <li class="events-group">
-                                <div class="top-info"><span>Thursday</span></div>
+                            <li class="events-group" style="list-style-type: none">
+                                <div class="top-info" ><span>Perşembe</span></div>
 
                                 <ul>
-                                    <li class="single-event" data-start="09:30" data-end="10:30" data-content="event-abs-circuit" data-event="event-1">
-                                        <a href="#0">
-                                            <em class="event-name">Abs Circuit</em>
-                                        </a>
-                                    </li>
+                                    @for($i= 9; $i<19; $i++)
+                                        <li class="single-event" data-start="{{ $i }}:00" data-end="{{ $i+1 }}:00"
+                                            data-content="event-abs-circuit" data-event="event-4">
+                                            <a href="#0">
+                                                <em class="event-name">Tüm Dersler</em>
+                                                <div class="d-none event-info">Perşembe {{ $i }} Dersleri</div>
+                                            </a>
 
-                                    <li class="single-event" data-start="12:00" data-end="13:45" data-content="event-restorative-yoga" data-event="event-4">
-                                        <a href="#0">
-                                            <em class="event-name">Restorative Yoga</em>
-                                        </a>
-                                    </li>
+                                        </li>
+                                    @endfor
 
-                                    <li class="single-event" data-start="15:30" data-end="16:30" data-content="event-abs-circuit" data-event="event-1">
-                                        <a href="#0">
-                                            <em class="event-name">Abs Circuit</em>
-                                        </a>
-                                    </li>
-
-                                    <li class="single-event" data-start="17:00" data-end="18:30"  data-content="event-rowing-workout" data-event="event-2">
-                                        <a href="#0">
-                                            <em class="event-name">Rowing Workout</em>
-                                        </a>
-                                    </li>
                                 </ul>
                             </li>
 
-                            <li class="events-group">
-                                <div class="top-info"><span>Friday</span></div>
+                            <li class="events-group" style="list-style-type: none">
+                                <div class="top-info" ><span>Cuma</span></div>
 
                                 <ul>
-                                    <li class="single-event" data-start="10:00" data-end="11:00"  data-content="event-rowing-workout" data-event="event-2">
-                                        <a href="#0">
-                                            <em class="event-name">Rowing Workout</em>
-                                        </a>
-                                    </li>
+                                    @for($i= 9; $i<19; $i++)
+                                        <li class="single-event" data-start="{{ $i }}:00" data-end="{{ $i+1 }}:00"
+                                            data-content="event-abs-circuit" data-event="event-1">
+                                            <a href="#0">
+                                                <em class="event-name">Tüm Dersler</em>
+                                                <div class="d-none event-info">Cuma {{ $i }} Dersleri</div>
+                                            </a>
 
-                                    <li class="single-event" data-start="12:30" data-end="14:00" data-content="event-abs-circuit" data-event="event-1">
-                                        <a href="#0">
-                                            <em class="event-name">Abs Circuit</em>
-                                        </a>
-                                    </li>
+                                        </li>
+                                    @endfor
 
-                                    <li class="single-event" data-start="15:45" data-end="16:45"  data-content="event-yoga-1" data-event="event-3">
-                                        <a href="#0">
-                                            <em class="event-name">Yoga Level 1</em>
-                                        </a>
-                                    </li>
+
                                 </ul>
                             </li>
-                            <!--        -->
-                            <li class="events-group">
-                                <div class="top-info"><span>Saturday</span></div>
-                                <ul>
-                                    <li class="single-event" data-start="09:30" data-end="10:30" data-content="event-abs-circuit" data-event="event-1">
-                                        <a href="#0">
-                                            <em class="event-name">Abs Circuit</em>
-                                        </a>
-                                    </li>
 
-                                    <li class="single-event" data-start="11:00" data-end="12:30" data-content="event-rowing-workout" data-event="event-2">
-                                        <a href="#0">
-                                            <em class="event-name">Rowing Workout</em>
-                                        </a>
-                                    </li>
-
-                                    <li class="single-event" data-start="14:00" data-end="15:15"  data-content="event-yoga-1" data-event="event-3">
-                                        <a href="#0">
-                                            <em class="event-name">Yoga Level 1</em>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--        -->
-
-                            <!--        -->
-                            <li class="events-group">
-                                <div class="top-info"><span>Sunday</span></div>
-                                <ul>
-                                    <li class="single-event" data-start="09:30" data-end="10:30" data-content="event-abs-circuit" data-event="event-1">
-                                        <a href="#0">
-                                            <em class="event-name">Abs Circuit</em>
-                                        </a>
-                                    </li>
-
-                                    <li class="single-event" data-start="11:00" data-end="12:30" data-content="event-rowing-workout" data-event="event-2">
-                                        <a href="#0">
-                                            <em class="event-name">Rowing Workout</em>
-                                        </a>
-                                    </li>
-
-                                    <li class="single-event" data-start="14:00" data-end="15:15"  data-content="event-yoga-1" data-event="event-3">
-                                        <a href="#0">
-                                            <em class="event-name">Yoga Level 1</em>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!--        -->
                         </ul>
                     </div>
 
@@ -249,7 +149,7 @@
                         </header>
 
                         <div class="body">
-                            <div class="event-info"></div>
+                            <div class="event-info p-10"></div>
                             <div class="body-bg"></div>
                         </div>
 
@@ -260,7 +160,6 @@
                 </div> <!-- .cd-schedule -->
 
                 <!--end::TimeTable-->
-
 
 
             </div>

@@ -43,6 +43,15 @@ class BackupController extends Controller
         return redirect(route('backup'));
     }
 
+    public function upload(Request $request)
+    {
+        $request->validate([
+            'backup' => 'required|max:2048',
+        ]);
+        $request->backup->move(public_path('/backups'), $request->file('backup')->getClientOriginalName());
+        return redirect()->back()->withErrors(['upload'=>'success']);
+    }
+
     public function download(Request $request)
     {
         $file= 'backups/'.$request->get('file');
@@ -58,8 +67,6 @@ class BackupController extends Controller
 
     public function backup()
     {
-        DB::unprepared("SET FOREIGN_KEY_CHECKS = 0;");
-
         $mysqlHostName      = env('DB_HOST');
         $mysqlUserName      = env('DB_USERNAME');
         $mysqlPassword      = env('DB_PASSWORD');
@@ -102,25 +109,22 @@ class BackupController extends Controller
             }
         }
         $file_name = 'yedek_' . date('d-M-Y_H-i-s') . '.sql';
-        $file_handle = fopen($file_name, 'w+');
-        fwrite($file_handle, $output);
-        fclose($file_handle);
-        header('Content-Description: File Transfer');
-        header('Content-Type: application/octet-stream');
-        header('Content-Disposition: attachment; filename=' . basename($file_name));
-        header('Content-Transfer-Encoding: binary');
-        header('Expires: 0');
-        header('Cache-Control: must-revalidate');
-        header('Pragma: public');
-        header('Content-Length: ' . filesize($file_name));
-        ob_clean();
-        flush();
+//        $file_handle = fopen($file_name, 'w+');
+//        fwrite($file_handle, $output);
+//        fclose($file_handle);
+//        header('Content-Description: File Transfer');
+//        header('Content-Type: application/octet-stream');
+//        header('Content-Disposition: attachment; filename=' . basename($file_name));
+//        header('Content-Transfer-Encoding: binary');
+//        header('Expires: 0');
+//        header('Cache-Control: must-revalidate');
+//        header('Pragma: public');
+//        header('Content-Length: ' . filesize($file_name));
+//        ob_clean();
+//        flush();
         file_put_contents('backups/'.$file_name, $output);
-        unlink($file_name);
-
-        DB::unprepared("SET FOREIGN_KEY_CHECKS = 1;");
-
-dd('başarılı');
+//        unlink($file_name);
+        return redirect()->back();
     }
 
 }

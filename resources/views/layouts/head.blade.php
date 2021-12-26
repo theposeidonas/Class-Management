@@ -4,6 +4,7 @@
 
 <meta name="description" content="@yield('description')">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 @php($route = Route::currentRouteName())
 @if($route=='timetable')
     <link href="/assets/css/timetable.css" rel="stylesheet" type="text/css">

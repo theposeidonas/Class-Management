@@ -61,6 +61,11 @@ Route::post('/delete_user', '\App\Http\Controllers\UserController@delete')->name
 Route::post('/add_classroom', '\App\Http\Controllers\ClassroomController@store')->name('create_classroom')->middleware('auth');
 Route::post('/delete_classroom', '\App\Http\Controllers\ClassroomController@delete')->name('delete_classroom')->middleware('auth');
 
+//Lesson post
+Route::post('/add_lesson', '\App\Http\Controllers\LessonController@store')->name('create_lesson')->middleware('auth');
+
+//Backup upload file
+Route::post('/upload_backup', '\App\Http\Controllers\BackupController@upload')->name('upload_backup')->middleware('auth');
 
 
 

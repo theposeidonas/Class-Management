@@ -35,6 +35,23 @@ Takım 4 kişiden oluşur, bunlar;
 
 ## Versiyon Geçmişi
 
+#### v0.2.3
+* Backup Sayfası
+  * **Yedekleme tuşu Bug düzeltildi**
+  * Yedek yükleme tuşu aktif
+  * Yedekleri geri yükleme aktif
+  * Optimizasyon sorunları giderildi
+* Ders Sayfası
+  * Ders Ekleme aktif edildi
+  * Filtreleme düzeltildi
+* Tüm Sınıf Tablosu
+  * Sayfa aktifleştirildi
+  * Tüm sınıf tablosundaki CSS ve JS hataları giderildi
+  * Her saat için nerede ne dersin olduğu JS ve CSS ile aktifleştirildi
+  * JS Dosyaları fixlendi, artık tıklandığında pencere açılıyor
+  * Açılan pencerelere veri koyulması JS ile düzeltildi
+
+
 #### v0.2.2
 
 * Backup sayfaları fix

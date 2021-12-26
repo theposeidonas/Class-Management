@@ -12,11 +12,13 @@ Main Components
     /* never visible - this is used in js to check the current MQ */
     content: 'mobile';
     display: none;
-}
+} .cd-schedule .events .wrap .li {
+      list-style-type: none;
+  }
 
 @media only screen and (min-width: 800px) {
     .cd-schedule {
-        width: 90%;
+        width: 100%;
         max-width: 1400px;
         margin: 2em auto;
     }
@@ -42,11 +44,12 @@ Main Components
         left: 0;
         height: 100%;
         width: 100%;
-        padding-top: 50px;
+        padding-top: 100px;
     }
     .cd-schedule .timeline li {
         position: relative;
-        height: 50px;
+        height: 100px;
+        list-style-type: none;
     }
     .cd-schedule .timeline li::after {
         /* this is used to create the table horizontal lines */
@@ -112,7 +115,9 @@ Main Components
     display: flex;
     overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
+
 }
+
 
 .cd-schedule .events .events-group > ul::after {
     /* never visible - used to add a right padding to .events-group > ul */
@@ -136,6 +141,8 @@ Main Components
     margin-right: 20px;
     -webkit-transition: opacity .2s, background .2s;
     transition: opacity .2s, background .2s;
+    list-style-type: none !important;
+
 }
 
 .cd-schedule .events .single-event:last-of-type {
@@ -152,6 +159,7 @@ Main Components
     .cd-schedule .events .single-event {
         width: 40%;
     }
+
 }
 
 @media only screen and (min-width: 800px) {
@@ -160,11 +168,12 @@ Main Components
         width: 100%;
     }
     .cd-schedule .events .events-group {
-        width: 14%;
+        width: 20%;
         float: left;
         border: 1px solid #EAEAEA;
         /* reset style */
         margin-bottom: 0;
+        list-style-type: none !important;
     }
     .cd-schedule .events .events-group:not(:first-of-type) {
         border-left-width: 0;
@@ -172,10 +181,11 @@ Main Components
     .cd-schedule .events .top-info {
         /* vertically center its content */
         display: table;
-        height: 50px;
+        height: 100px;
         border-bottom: 1px solid #EAEAEA;
         /* reset style */
         padding: 0;
+        list-style-type: none;
     }
     .cd-schedule .events .top-info > span {
         /* vertically center inside its parent */
@@ -188,7 +198,7 @@ Main Components
         margin-bottom: 0;
     }
     .cd-schedule .events .events-group > ul {
-        height: 950px;
+        height: 1000px;
         /* reset style */
         display: block;
         overflow: visible;
@@ -233,8 +243,7 @@ Main Components
 @media only screen and (min-width: 1000px) {
     .cd-schedule .events {
         /* 60px is the .timeline element width */
-        width: calc(100% - 60px);
-        margin-left: 60px;
+        width: 100%;
     }
 }
 
@@ -360,6 +369,7 @@ Main Components
     line-height: 1.4;
     height: 100%;
     overflow: hidden;
+    color:black;
 }
 
 .cd-schedule .event-modal .event-info > div {

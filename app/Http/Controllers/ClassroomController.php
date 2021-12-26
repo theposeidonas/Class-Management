@@ -88,7 +88,8 @@ class ClassroomController extends Controller
           ]
         ];
         $classroom->time_table = json_encode($timetable);
-
+        $classroom->updated_at = date('Y-m-d H:i:s');
+        $classroom->created_at = date('Y-m-d H:i:s');
 
         if($classroom->save())
             return back()->withErrors(['form' => 'success']);

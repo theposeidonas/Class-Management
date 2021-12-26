@@ -19,6 +19,8 @@ class Lesson extends Model
         'location',
         'title',
         'faculty',
+        'updated_at',
+        'created_at',
 
 
     ];}

@@ -23,9 +23,11 @@ class ModulesController extends Controller
     {
         $Users=User::get();
         $lessons = Lesson::LeftJoin('users','lesson.author','=','users.id')->LeftJoin('classroom','lesson.location','=','classroom.id')->select('users.name','classroom.title as classroom_name','lesson.*')->get();
+        $classroom_list = Classroom::get();
         return view("modules.lesson", [
             'users_list'=>$Users,
             'lesson_list'=>$lessons,
+            'classroom_list'=>$classroom_list,
         ]);
     }
     public function classroom_module()

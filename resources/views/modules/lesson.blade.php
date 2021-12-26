@@ -131,7 +131,7 @@
                                 <!--begin::Modal header-->
                                 <div class="modal-header" id="kt_modal_add_user_header">
                                     <!--begin::Modal title-->
-                                    <h2 class="fw-bolder">Add User</h2>
+                                    <h2 class="fw-bolder">Ders Ekle</h2>
                                     <!--end::Modal title-->
                                     <!--begin::Close-->
                                     <div class="btn btn-icon btn-sm btn-active-icon-primary" data-kt-users-modal-action="close">
@@ -150,69 +150,60 @@
                                 <!--begin::Modal body-->
                                 <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
                                     <!--begin::Form-->
-                                    <form id="kt_modal_add_user_form" class="form" action="#">
+                                    <form id="kt_modal_add_user_form" class="form" action="{{ route('create_lesson') }}" method="post">
                                         <!--begin::Scroll-->
+                                        @csrf
                                         <div class="d-flex flex-column scroll-y me-n7 pe-7" id="kt_modal_add_user_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_user_header" data-kt-scroll-wrappers="#kt_modal_add_user_scroll" data-kt-scroll-offset="300px">
                                             <!--begin::Input group-->
                                             <div class="fv-row mb-7">
                                                 <!--begin::Label-->
-                                                <label class="d-block fw-bold fs-6 mb-5">Avatar</label>
-                                                <!--end::Label-->
-                                                <!--begin::Image input-->
-                                                <div class="image-input image-input-outline" data-kt-image-input="true" style="background-image: url(../../../../assets/media/avatars/blank.png)">
-                                                    <!--begin::Preview existing avatar-->
-                                                    <div class="image-input-wrapper w-125px h-125px" style="background-image: url(../../../../assets/media/avatars/150-1.jpg);"></div>
-                                                    <!--end::Preview existing avatar-->
-                                                    <!--begin::Label-->
-                                                    <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
-                                                        <i class="bi bi-pencil-fill fs-7"></i>
-                                                        <!--begin::Inputs-->
-                                                        <input type="file" name="avatar" accept=".png, .jpg, .jpeg">
-                                                        <input type="hidden" name="avatar_remove">
-                                                        <!--end::Inputs-->
-                                                    </label>
-                                                    <!--end::Label-->
-                                                    <!--begin::Cancel-->
-                                                    <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
-																			<i class="bi bi-x fs-2"></i>
-																		</span>
-                                                    <!--end::Cancel-->
-                                                    <!--begin::Remove-->
-                                                    <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
-																			<i class="bi bi-x fs-2"></i>
-																		</span>
-                                                    <!--end::Remove-->
-                                                </div>
-                                                <!--end::Image input-->
-                                                <!--begin::Hint-->
-                                                <div class="form-text">Allowed file types: png, jpg, jpeg.</div>
-                                                <!--end::Hint-->
-                                            </div>
-                                            <!--end::Input group-->
-                                            <!--begin::Input group-->
-                                            <div class="fv-row mb-7">
-                                                <!--begin::Label-->
-                                                <label class="required fw-bold fs-6 mb-2">Full Name</label>
+                                                <label class="required fw-bold fs-6 mb-2">Ders Adı</label>
                                                 <!--end::Label-->
                                                 <!--begin::Input-->
-                                                <input type="text" name="user_name" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="Full name" value="Emma Smith">
+                                                <input type="text" name="title" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="MUH102" required>
                                                 <!--end::Input-->
                                             </div>
                                             <!--end::Input group-->
                                             <!--begin::Input group-->
                                             <div class="fv-row mb-7">
                                                 <!--begin::Label-->
-                                                <label class="required fw-bold fs-6 mb-2">Email</label>
+                                                <label class="required fw-bold fs-6 mb-2">Öğretmen</label>
                                                 <!--end::Label-->
                                                 <!--begin::Input-->
-                                                <input type="email" name="user_email" class="form-control form-control-solid mb-3 mb-lg-0" placeholder="example@domain.com" value="e.smith@kpmg.com.au">
+
+                                                <select class="form-select form-select-solid fw-bolder" data-kt-select2="true"
+                                                        data-placeholder="Seç" data-allow-clear="false"
+                                                         data-hide-search="true" name="author" id="">
+                                                    @foreach($users_list as $user)
+                                                    <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                                    @endforeach
+
+                                                </select>
+                                                <!--end::Input-->
+                                            </div>
+                                            <!--end::Input group-->
+                                            <!--begin::Input group-->
+                                            <div class="fv-row mb-7">
+                                                <!--begin::Label-->
+                                                <label class="required fw-bold fs-6 mb-2">Sınıf</label>
+                                                <!--end::Label-->
+                                                <!--begin::Input-->
+
+                                                <select class="form-select form-select-solid fw-bolder" data-kt-select2="true"
+                                                        data-placeholder="Seç" data-allow-clear="false"
+                                                         data-hide-search="true" name="location" id="">
+                                                    @foreach($classroom_list as $classroom)
+                                                    <option value="{{ $classroom->id }}">{{ $classroom->title }}</option>
+                                                    @endforeach
+
+                                                </select>
                                                 <!--end::Input-->
                                             </div>
                                             <!--end::Input group-->
                                             <!--begin::Input group-->
                                             <div class="mb-7">
                                                 <!--begin::Label-->
-                                                <label class="required fw-bold fs-6 mb-5">Role</label>
+                                                <label class="required fw-bold fs-6 mb-5">Fakülte</label>
                                                 <!--end::Label-->
                                                 <!--begin::Roles-->
                                                 <!--begin::Input row-->
@@ -220,12 +211,16 @@
                                                     <!--begin::Radio-->
                                                     <div class="form-check form-check-custom form-check-solid">
                                                         <!--begin::Input-->
-                                                        <input class="form-check-input me-3" name="user_role" type="radio" value="0" id="kt_modal_update_role_option_0" checked='checked'>
+                                                        <input class="form-check-input me-3" name="faculty" type="radio"
+                                                               value="Bilgisayar Mühendisliği"
+                                                               id="kt_modal_update_role_option_3" checked='checked'>
                                                         <!--end::Input-->
                                                         <!--begin::Label-->
-                                                        <label class="form-check-label" for="kt_modal_update_role_option_0">
-                                                            <div class="fw-bolder text-gray-800">Administrator</div>
-                                                            <div class="text-gray-600">Best for business owners and company administrators</div>
+                                                        <label class="form-check-label"
+                                                               for="kt_modal_update_role_option_3">
+                                                            <div class="fw-bolder text-gray-800">Bilgisayar
+                                                                Mühendisliği
+                                                            </div>
                                                         </label>
                                                         <!--end::Label-->
                                                     </div>
@@ -238,12 +233,16 @@
                                                     <!--begin::Radio-->
                                                     <div class="form-check form-check-custom form-check-solid">
                                                         <!--begin::Input-->
-                                                        <input class="form-check-input me-3" name="user_role" type="radio" value="1" id="kt_modal_update_role_option_1">
+                                                        <input class="form-check-input me-3" name="faculty" type="radio"
+                                                               value="Elektrik Elektronik Mühendisliği"
+                                                               id="kt_modal_update_role_option_4">
                                                         <!--end::Input-->
                                                         <!--begin::Label-->
-                                                        <label class="form-check-label" for="kt_modal_update_role_option_1">
-                                                            <div class="fw-bolder text-gray-800">Developer</div>
-                                                            <div class="text-gray-600">Best for developers or people primarily using the API</div>
+                                                        <label class="form-check-label"
+                                                               for="kt_modal_update_role_option_4">
+                                                            <div class="fw-bolder text-gray-800">Elektrik Elektronik
+                                                                Mühendisliği
+                                                            </div>
                                                         </label>
                                                         <!--end::Label-->
                                                     </div>
@@ -256,12 +255,15 @@
                                                     <!--begin::Radio-->
                                                     <div class="form-check form-check-custom form-check-solid">
                                                         <!--begin::Input-->
-                                                        <input class="form-check-input me-3" name="user_role" type="radio" value="2" id="kt_modal_update_role_option_2">
+                                                        <input class="form-check-input me-3" name="faculty" type="radio"
+                                                               value="Makina Mühendisliği"
+                                                               id="kt_modal_update_role_option_5">
                                                         <!--end::Input-->
                                                         <!--begin::Label-->
-                                                        <label class="form-check-label" for="kt_modal_update_role_option_2">
-                                                            <div class="fw-bolder text-gray-800">Analyst</div>
-                                                            <div class="text-gray-600">Best for people who need full access to analytics data, but don't need to update business settings</div>
+                                                        <label class="form-check-label"
+                                                               for="kt_modal_update_role_option_5">
+                                                            <div class="fw-bolder text-gray-800">Makina Mühendisliği
+                                                            </div>
                                                         </label>
                                                         <!--end::Label-->
                                                     </div>
@@ -274,12 +276,15 @@
                                                     <!--begin::Radio-->
                                                     <div class="form-check form-check-custom form-check-solid">
                                                         <!--begin::Input-->
-                                                        <input class="form-check-input me-3" name="user_role" type="radio" value="3" id="kt_modal_update_role_option_3">
+                                                        <input class="form-check-input me-3" name="faculty" type="radio"
+                                                               value="İnşaat Mühendisliği"
+                                                               id="kt_modal_update_role_option_6">
                                                         <!--end::Input-->
                                                         <!--begin::Label-->
-                                                        <label class="form-check-label" for="kt_modal_update_role_option_3">
-                                                            <div class="fw-bolder text-gray-800">Support</div>
-                                                            <div class="text-gray-600">Best for employees who regularly refund payments and respond to disputes</div>
+                                                        <label class="form-check-label"
+                                                               for="kt_modal_update_role_option_6">
+                                                            <div class="fw-bolder text-gray-800">İnşaat Mühendisliği
+                                                            </div>
                                                         </label>
                                                         <!--end::Label-->
                                                     </div>
@@ -292,12 +297,15 @@
                                                     <!--begin::Radio-->
                                                     <div class="form-check form-check-custom form-check-solid">
                                                         <!--begin::Input-->
-                                                        <input class="form-check-input me-3" name="user_role" type="radio" value="4" id="kt_modal_update_role_option_4">
+                                                        <input class="form-check-input me-3" name="faculty" type="radio"
+                                                               value="Jeoloji Mühendisliği"
+                                                               id="kt_modal_update_role_option_7">
                                                         <!--end::Input-->
                                                         <!--begin::Label-->
-                                                        <label class="form-check-label" for="kt_modal_update_role_option_4">
-                                                            <div class="fw-bolder text-gray-800">Trial</div>
-                                                            <div class="text-gray-600">Best for people who need to preview content data, but don't need to make any updates</div>
+                                                        <label class="form-check-label"
+                                                               for="kt_modal_update_role_option_7">
+                                                            <div class="fw-bolder text-gray-800">Jeoloji Mühendisliği
+                                                            </div>
                                                         </label>
                                                         <!--end::Label-->
                                                     </div>
@@ -311,9 +319,9 @@
                                         <!--end::Scroll-->
                                         <!--begin::Actions-->
                                         <div class="text-center pt-15">
-                                            <button type="reset" class="btn btn-light me-3" data-kt-users-modal-action="cancel">Discard</button>
-                                            <button type="submit" class="btn btn-primary" data-kt-users-modal-action="submit">
-                                                <span class="indicator-label">Submit</span>
+                                            <button type="reset" class="btn btn-light me-3" data-kt-users-modal-action="cancel">İptal</button>
+                                            <button type="submit" class="btn btn-primary">
+                                                <span class="indicator-label">Gönder</span>
                                                 <span class="indicator-progress">Please wait...
 																	<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                             </button>
@@ -335,7 +343,8 @@
             <!--end::Card header-->
             <!--begin::Card body-->
             <div class="card-body pt-0">
-            @if(1)
+                @if($errors->any())
+            @if($errors->first()=='success')
                     <!--begin::Alert-->
                         <div class="alert alert-dismissible bg-light-success border border-success d-flex flex-column flex-sm-row p-5 mb-10">
                             <!--begin::Icon-->
@@ -351,7 +360,7 @@
                                 <h5 class="mb-1">Başarılı!</h5>
                                 <!--end::Title-->
                                 <!--begin::Content-->
-                                <span>Eklediğiniz kullanıcı başarı ile eklendi...</span>
+                                <span>Eklediğiniz ders başarı ile eklendi...</span>
                                 <!--end::Content-->
                             </div>
                             <!--end::Wrapper-->
@@ -363,7 +372,35 @@
                             <!--end::Close-->
                         </div>
                         <!--end::Alert-->
+                    @elseif($errors->first()=='delete')
+                    <!--begin::Alert-->
+                        <div class="alert alert-dismissible bg-light-success border border-success d-flex flex-column flex-sm-row p-5 mb-10">
+                            <!--begin::Icon-->
+                            <span class="svg-icon svg-icon-2hx svg-icon-success me-4 mb-5 mb-sm-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="black"/>
+<path d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z" fill="black"/>
+</svg></span>
+                            <!--end::Icon-->
 
+                            <!--begin::Wrapper-->
+                            <div class="d-flex flex-column pe-0 pe-sm-10">
+                                <!--begin::Title-->
+                                <h5 class="mb-1">Başarılı!</h5>
+                                <!--end::Title-->
+                                <!--begin::Content-->
+                                <span>Dersi başarı ile sildiniz...</span>
+                                <!--end::Content-->
+                            </div>
+                            <!--end::Wrapper-->
+
+                            <!--begin::Close-->
+                            <button type="button" class="position-absolute position-sm-relative m-2 m-sm-0 top-0 end-0 btn btn-icon ms-sm-auto" data-bs-dismiss="alert">
+                                <i class="bi bi-x fs-1 text-success"></i>
+                            </button>
+                            <!--end::Close-->
+                        </div>
+                        <!--end::Alert-->
+                    @elseif($errors->first()=='fail')
                     <!--begin::Alert-->
                         <div class="alert alert-dismissible bg-light-warning border border-primary d-flex flex-column flex-sm-row p-5 mb-10">
                             <!--begin::Icon-->
@@ -393,6 +430,7 @@
                         </div>
                         <!--end::Alert-->
                 @endif
+                @endif
                 <!--begin::Table-->
                 <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
                     <!--begin::Table head-->
@@ -408,7 +446,7 @@
                         <th class="min-w-125px">Fakülte</th>
                         <th class="min-w-125px">Öğretmen</th>
                         <th class="min-w-125px">Sınıf</th>
-                        <th class="min-w-125px">Eklenme Tarihi</th>
+                        <th class="min-w-125px">Eklenme</th>
                         <th class="text-end min-w-100px">Eylemler</th>
                     </tr>
                     <!--end::Table row-->

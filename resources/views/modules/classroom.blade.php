@@ -714,7 +714,7 @@
                         <th class="min-w-125px">Açıklama</th>
                         <th class="min-w-125px">Kapasite</th>
                         <th class="min-w-125px">Yetkili</th>
-                        <th class="min-w-125px">Eklenme Tarihi</th>
+                        <th class="min-w-125px">Eklenme</th>
                         <th class="text-end min-w-100px">Eylemler</th>
                     </tr>
                     <!--end::Table row-->
@@ -757,7 +757,7 @@
                             </td>
                             <!--end::Two step=-->
                             <!--begin::Joined-->
-                            <td>{{ strftime("%e %B %Y %A\n",strtotime($classroom->created_at)) }}</td>
+                            <td>{{ Carbon::parse($classroom->created_at)->diffForHumans(Carbon::now()) }}</td>
                             <!--begin::Joined-->
                             <!--begin::Action=-->
                             <td class="text-end">
