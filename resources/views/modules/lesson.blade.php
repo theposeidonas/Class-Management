@@ -57,23 +57,24 @@
                                 <!--begin::Input group-->
                                 <div class="mb-10">
                                     <label class="form-label fs-6 fw-bold">Bölüm:</label>
-                                    <select class="form-select form-select-solid fw-bolder" data-kt-select2="true" data-placeholder="Seç" data-allow-clear="true" data-kt-user-table-filter="role" data-hide-search="true">
+                                    <select class="form-select form-select-solid fw-bolder" data-kt-select2="true" data-placeholder="Seç" data-allow-clear="true" data-kt-user-table-filter="faculty" data-hide-search="true">
                                         <option></option>
-                                        <option value="Administrator">Bilgisayar Mühendisliği</option>
-                                        <option value="Analyst">Elektrik Elekronik</option>
-                                        <option value="Developer">Makina Mühendisliği</option>
-                                        <option value="Support">İnşaat Mühendisliği</option>
-                                        <option value="Trial">Jeoloji Mühendisliği</option>
+                                        <option value="Bilgisayar Mühendisliği">Bilgisayar Mühendisliği</option>
+                                        <option value="Elektrik Elektronik Mühendisliği">Elektrik Elektronik Mühendisliği</option>
+                                        <option value="Makina Mühendisliği">Makina Mühendisliği</option>
+                                        <option value="İnşaat Mühendisliği">İnşaat Mühendisliği</option>
+                                        <option value="Jeoloji Mühendisliği">Jeoloji Mühendisliği</option>
                                     </select>
                                 </div>
                                 <!--end::Input group-->
                                 <!--begin::Input group-->
                                 <div class="mb-10">
                                     <label class="form-label fs-6 fw-bold">Yetki:</label>
-                                    <select class="form-select form-select-solid fw-bolder" data-kt-select2="true" data-placeholder="Seç" data-allow-clear="true" data-kt-user-table-filter="two-step" data-hide-search="true">
+                                    <select class="form-select form-select-solid fw-bolder" data-kt-select2="true" data-placeholder="Seç" data-allow-clear="true" data-kt-user-table-filter="user" data-hide-search="true">
                                         <option></option>
-                                        <option value="Disabled">Yönetici</option>
-                                        <option value="Enabled">Öğretmen</option>
+                                        @foreach($users_list as $user)
+                                        <option value="{{ $user->name }}">{{ $user->name }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <!--end::Input group-->
@@ -120,88 +121,7 @@
                         <button type="button" class="btn btn-danger" data-kt-user-table-select="delete_selected">Seçilenleri Sil</button>
                     </div>
                     <!--end::Group actions-->
-                    <!--begin::Modal - Adjust Balance-->
-                    <div class="modal fade" id="kt_modal_export_users" tabindex="-1" aria-hidden="true">
-                        <!--begin::Modal dialog-->
-                        <div class="modal-dialog modal-dialog-centered mw-650px">
-                            <!--begin::Modal content-->
-                            <div class="modal-content">
-                                <!--begin::Modal header-->
-                                <div class="modal-header">
-                                    <!--begin::Modal title-->
-                                    <h2 class="fw-bolder">Export Users</h2>
-                                    <!--end::Modal title-->
-                                    <!--begin::Close-->
-                                    <div class="btn btn-icon btn-sm btn-active-icon-primary" data-kt-users-modal-action="close">
-                                        <!--begin::Svg Icon | path: icons/duotune/arrows/arr061.svg-->
-                                        <span class="svg-icon svg-icon-1">
-																<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none">
-																	<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1" transform="rotate(-45 6 17.3137)" fill="black"></rect>
-																	<rect x="7.41422" y="6" width="16" height="2" rx="1" transform="rotate(45 7.41422 6)" fill="black"></rect>
-																</svg>
-															</span>
-                                        <!--end::Svg Icon-->
-                                    </div>
-                                    <!--end::Close-->
-                                </div>
-                                <!--end::Modal header-->
-                                <!--begin::Modal body-->
-                                <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
-                                    <!--begin::Form-->
-                                    <form id="kt_modal_export_users_form" class="form" action="#">
-                                        <!--begin::Input group-->
-                                        <div class="fv-row mb-10">
-                                            <!--begin::Label-->
-                                            <label class="fs-6 fw-bold form-label mb-2">Select Roles:</label>
-                                            <!--end::Label-->
-                                            <!--begin::Input-->
-                                            <select name="role" data-control="select2" data-placeholder="Select a role" data-hide-search="true" class="form-select form-select-solid fw-bolder">
-                                                <option></option>
-                                                <option value="Administrator">Administrator</option>
-                                                <option value="Analyst">Analyst</option>
-                                                <option value="Developer">Developer</option>
-                                                <option value="Support">Support</option>
-                                                <option value="Trial">Trial</option>
-                                            </select>
-                                            <!--end::Input-->
-                                        </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Input group-->
-                                        <div class="fv-row mb-10">
-                                            <!--begin::Label-->
-                                            <label class="required fs-6 fw-bold form-label mb-2">Select Export Format:</label>
-                                            <!--end::Label-->
-                                            <!--begin::Input-->
-                                            <select name="format" data-control="select2" data-placeholder="Select a format" data-hide-search="true" class="form-select form-select-solid fw-bolder">
-                                                <option></option>
-                                                <option value="excel">Excel</option>
-                                                <option value="pdf">PDF</option>
-                                                <option value="cvs">CVS</option>
-                                                <option value="zip">ZIP</option>
-                                            </select>
-                                            <!--end::Input-->
-                                        </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Actions-->
-                                        <div class="text-center">
-                                            <button type="reset" class="btn btn-light me-3" data-kt-users-modal-action="cancel">Discard</button>
-                                            <button type="submit" class="btn btn-primary" data-kt-users-modal-action="submit">
-                                                <span class="indicator-label">Submit</span>
-                                                <span class="indicator-progress">Please wait...
-																	<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-                                            </button>
-                                        </div>
-                                        <!--end::Actions-->
-                                    </form>
-                                    <!--end::Form-->
-                                </div>
-                                <!--end::Modal body-->
-                            </div>
-                            <!--end::Modal content-->
-                        </div>
-                        <!--end::Modal dialog-->
-                    </div>
-                    <!--end::Modal - New Card-->
+
                     <!--begin::Modal - Add task-->
                     <div class="modal fade" id="kt_modal_add_user" tabindex="-1" aria-hidden="true">
                         <!--begin::Modal dialog-->
@@ -415,6 +335,64 @@
             <!--end::Card header-->
             <!--begin::Card body-->
             <div class="card-body pt-0">
+            @if(1)
+                    <!--begin::Alert-->
+                        <div class="alert alert-dismissible bg-light-success border border-success d-flex flex-column flex-sm-row p-5 mb-10">
+                            <!--begin::Icon-->
+                            <span class="svg-icon svg-icon-2hx svg-icon-success me-4 mb-5 mb-sm-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="black"/>
+<path d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z" fill="black"/>
+</svg></span>
+                            <!--end::Icon-->
+
+                            <!--begin::Wrapper-->
+                            <div class="d-flex flex-column pe-0 pe-sm-10">
+                                <!--begin::Title-->
+                                <h5 class="mb-1">Başarılı!</h5>
+                                <!--end::Title-->
+                                <!--begin::Content-->
+                                <span>Eklediğiniz kullanıcı başarı ile eklendi...</span>
+                                <!--end::Content-->
+                            </div>
+                            <!--end::Wrapper-->
+
+                            <!--begin::Close-->
+                            <button type="button" class="position-absolute position-sm-relative m-2 m-sm-0 top-0 end-0 btn btn-icon ms-sm-auto" data-bs-dismiss="alert">
+                                <i class="bi bi-x fs-1 text-success"></i>
+                            </button>
+                            <!--end::Close-->
+                        </div>
+                        <!--end::Alert-->
+
+                    <!--begin::Alert-->
+                        <div class="alert alert-dismissible bg-light-warning border border-primary d-flex flex-column flex-sm-row p-5 mb-10">
+                            <!--begin::Icon-->
+                            <span class="svg-icon svg-icon-2hx svg-icon-warning me-4 mb-5 mb-sm-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<path opacity="0.3" d="M20.5543 4.37824L12.1798 2.02473C12.0626 1.99176 11.9376 1.99176 11.8203 2.02473L3.44572 4.37824C3.18118 4.45258 3 4.6807 3 4.93945V13.569C3 14.6914 3.48509 15.8404 4.4417 16.984C5.17231 17.8575 6.18314 18.7345 7.446 19.5909C9.56752 21.0295 11.6566 21.912 11.7445 21.9488C11.8258 21.9829 11.9129 22 12.0001 22C12.0872 22 12.1744 21.983 12.2557 21.9488C12.3435 21.912 14.4326 21.0295 16.5541 19.5909C17.8169 18.7345 18.8277 17.8575 19.5584 16.984C20.515 15.8404 21 14.6914 21 13.569V4.93945C21 4.6807 20.8189 4.45258 20.5543 4.37824Z" fill="black"/>
+<rect x="9" y="13.0283" width="7.3536" height="1.2256" rx="0.6128" transform="rotate(-45 9 13.0283)" fill="black"/>
+<rect x="9.86664" y="7.93359" width="7.3536" height="1.2256" rx="0.6128" transform="rotate(45 9.86664 7.93359)" fill="black"/>
+</svg></span>
+                            <!--end::Icon-->
+
+                            <!--begin::Wrapper-->
+                            <div class="d-flex flex-column pe-0 pe-sm-10">
+                                <!--begin::Title-->
+                                <h5 class="mb-1">Hata</h5>
+                                <!--end::Title-->
+                                <!--begin::Content-->
+                                <span>Kullanıcı bir sebepten ötürü eklenemedi. Lütfen daha sonra tekrar deneyin...</span>
+                                <!--end::Content-->
+                            </div>
+                            <!--end::Wrapper-->
+
+                            <!--begin::Close-->
+                            <button type="button" class="position-absolute position-sm-relative m-2 m-sm-0 top-0 end-0 btn btn-icon ms-sm-auto" data-bs-dismiss="alert">
+                                <i class="bi bi-x fs-1 text-warning"></i>
+                            </button>
+                            <!--end::Close-->
+                        </div>
+                        <!--end::Alert-->
+                @endif
                 <!--begin::Table-->
                 <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
                     <!--begin::Table head-->
@@ -428,8 +406,8 @@
                         </th>
                         <th class="min-w-125px">Sınıf İsmi</th>
                         <th class="min-w-125px">Fakülte</th>
-                        <th class="min-w-125px"></th>
                         <th class="min-w-125px">Öğretmen</th>
+                        <th class="min-w-125px">Sınıf</th>
                         <th class="min-w-125px">Eklenme Tarihi</th>
                         <th class="text-end min-w-100px">Eylemler</th>
                     </tr>
@@ -438,6 +416,7 @@
                     <!--end::Table head-->
                     <!--begin::Table body-->
                     <tbody class="text-gray-600 fw-bold">
+                    @foreach($lesson_list as $lesson)
                     <!--begin::Table row-->
                     <tr>
                         <!--begin::Checkbox-->
@@ -448,41 +427,29 @@
                         </td>
                         <!--end::Checkbox-->
                         <!--begin::User=-->
-                        <td class="d-flex align-items-center">
-                            <!--begin:: Avatar -->
-                            <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
-                                <a href="view.html">
-                                    <div class="symbol-label">
-                                        <img src="../../../../assets/media/avatars/150-1.jpg" alt="Emma Smith" class="w-100">
-                                    </div>
-                                </a>
-                            </div>
-                            <!--end::Avatar-->
+                        <td>
+
                             <!--begin::User details-->
-                            <div class="d-flex flex-column">
-                                <a href="view.html" class="text-gray-800 text-hover-primary mb-1">Emma Smith</a>
-                                <span>e.smith@kpmg.com.au</span>
+                            <div>
+                                <a href="#" class="text-gray-800 text-hover-primary mb-1">{{ $lesson->title }}</a>
                             </div>
                             <!--begin::User details-->
                         </td>
                         <!--end::User=-->
                         <!--begin::Role=-->
-                        <td>Administrator</td>
+                        <td>{{ $lesson->faculty }}</td>
                         <!--end::Role=-->
-                        <!--begin::Last login=-->
-                        <td>
-                            <div class="badge badge-light fw-bolder">Yesterday</div>
-                        </td>
-                        <!--end::Last login=-->
+
                         <!--begin::Two step=-->
-                        <td> <div class="badge badge-light-primary fw-bolder">Öğretmen</div></td>
+                        <td> <div class="badge badge-light-primary fw-bolder">{{ $lesson->name }}</div></td>
                         <!--end::Two step=-->
+                        <td>{{ $lesson->classroom_name }}</td>
                         <!--begin::Joined-->
-                        <td>05 May 2021, 5:30 pm</td>
+                        <td>{{ Carbon::parse($lesson->created_at)->diffForHumans(Carbon::now()) }}</td>
                         <!--begin::Joined-->
                         <!--begin::Action=-->
                         <td class="text-end">
-                            <a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
+                            <a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Eylemler
                                 <!--begin::Svg Icon | path: icons/duotune/arrows/arr072.svg-->
                                 <span class="svg-icon svg-icon-5 m-0">
 														<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none">
@@ -494,12 +461,12 @@
                             <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4" data-kt-menu="true">
                                 <!--begin::Menu item-->
                                 <div class="menu-item px-3">
-                                    <a href="view.html" class="menu-link px-3">Edit</a>
+                                    <a href="view.html" class="menu-link px-3">Düzenle</a>
                                 </div>
                                 <!--end::Menu item-->
                                 <!--begin::Menu item-->
                                 <div class="menu-item px-3">
-                                    <a href="#" class="menu-link px-3" data-kt-users-table-filter="delete_row">Delete</a>
+                                    <a href="{{ route('class-delete',['id'=>$lesson->id]) }}" class="menu-link px-3">Sil</a>
                                 </div>
                                 <!--end::Menu item-->
                             </div>
@@ -508,7 +475,7 @@
                         <!--end::Action=-->
                     </tr>
                     <!--end::Table row-->
-
+                    @endforeach
                     </tbody>
                     <!--end::Table body-->
                 </table>

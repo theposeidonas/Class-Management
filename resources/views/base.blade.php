@@ -2,7 +2,7 @@
 <html lang="tr">
 <!--begin::Head-->
 <head>
-   @include("layouts.head")
+   @include('layouts.head')
 </head>
 <!--end::Head-->
 <!--begin::Body-->

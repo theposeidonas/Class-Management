@@ -3,7 +3,10 @@
 Class Management sistemi kısaca üniversite ortamında fakülte yöneticilerinin kullanabileceği ve fakülte sınıflarına ders
 atamalarını yapabileceği, çakışan dersleri kontrol edebileceği bir yönetim sistemidir.
 
->Aktif domain: [class.webremium.com]()
+
+Önemli Not: Laravel 8.x kullanımında önemli bir bug tespit edilmiştir. Bu bug PHP dilinde dil ayarları için kullanılan setLocale fonksiyonu Türkçe dili için kullanıldığında bazı if statement'lerini yok sayabiliyor. Bu yüzden hata verebiliyor. Böyle bir hata ile karşılaştığınızda lütfen uyarı verin. Hata hakkında daha fazla bilgi için: [Stackoverflow Linki](https://stackoverflow.com/questions/43589501/if-statements-not-working-correctly-on-laravel-blade)
+
+> Aktif domain: [class.webremium.com]()
 
 `Laravel Debugbar : Açık`
 
@@ -11,11 +14,11 @@ atamalarını yapabileceği, çakışan dersleri kontrol edebileceği bir yönet
 
 `Sınıf Modülü : Aktif`
 
-`Dersler Modülü : Yapım Aşamasında`
+`Dersler Modülü : Aktif (Tamamlanmadı - v0.2.2)`
 
 `Sınıf Zaman Tablosu: Yapım Aşamasında`
 
-`Sistem Yedekleme: Aktif`
+`Sistem Yedekleme: Aktif (Bug mevcut - v0.2.2)`
 
 `Hızlı Arama: Yapım Aşamasında`
 
@@ -32,6 +35,20 @@ Takım 4 kişiden oluşur, bunlar;
 
 ## Versiyon Geçmişi
 
+#### v0.2.2
+
+* Backup sayfaları fix
+  * **Backup yedekleme bug mevcut (Yedekle tuşu)**
+  * Backup artık dersleri kapsıyor
+  * Geri yedekleme çalışır hale getirildi
+  * Bilgiler artık doğru şekilde gösteriliyor. (Boyut ve sayı)
+* Lesson Modeli eklendi
+* Lesson Controller eklendi
+* Dersler sayfası:
+  * Listeleme ve bilgiler doğru şekilde geliyor
+  * Yeni ders ekle mevcut değil
+  * Dersi sil butonu aktif
+  * Filtreleme ve arama aktif
 
 #### v0.2
 * Ana sayfa gereksiz HTML kaldırıldı
@@ -132,7 +149,8 @@ Takım 4 kişiden oluşur, bunlar;
 
 ### Yapım Aşamasında Olanlar
 
-- Dersler Modülü
+- Toolbar Hızlı Arama
+- Profil, Sınıf ve Ders detay sayfaları
 - Öğretmen Duyuruları
 - Full Timetable sayfası (CSS JS sorunları bulunuyor yapım aşamasında)
 

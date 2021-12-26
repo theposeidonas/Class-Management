@@ -582,8 +582,7 @@
             <!--end::Card header-->
             <!--begin::Card body-->
             <div class="card-body pt-0">
-                @if($errors->any())
-                @if($errors->first()=='success')
+                @if(isset($errors) and$errors->first()=='success')
                     <!--begin::Alert-->
                         <div class="alert alert-dismissible bg-light-success border border-success d-flex flex-column flex-sm-row p-5 mb-10">
                             <!--begin::Icon-->
@@ -611,7 +610,7 @@
                             <!--end::Close-->
                         </div>
                         <!--end::Alert-->
-                @elseif($errors->first()=='fail')
+                @elseif(isset($errors) and $errors->first()=='fail')
                     <!--begin::Alert-->
                         <div class="alert alert-dismissible bg-light-warning border border-primary d-flex flex-column flex-sm-row p-5 mb-10">
                             <!--begin::Icon-->
@@ -640,10 +639,10 @@
                             <!--end::Close-->
                         </div>
                         <!--end::Alert-->
-                @endif
+
                 @endif
 
-                <!--begin::Table-->
+            <!--begin::Table-->
                 <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
 
                     <!--begin::Table head-->
@@ -706,13 +705,20 @@
 
                             <td>
                                 <div
-                                    class="badge badge-light fw-bolder">{{ Carbon::parse($user->last_login)->diffForHumans(Carbon::now()) }}</div>
+                                    class="badge badge-light fw-bolder">
+                                    @if($user->last_login != NULL)
+                                        {{ Carbon::parse($user->last_login)->diffForHumans(Carbon::now()) }}
+                                    @else
+                                        Hiç Giriş Yapmadı
+                                    @endif</div>
                             </td>
                             <!--end::Last login=-->
                             <!--begin::Two step=-->
-                            <td>@if($user->auth==1)
-                                    <div class="badge badge-light-success fw-bolder">Yönetici</div>@else
-                                    <div class="badge badge-light-primary fw-bolder">Öğretmen</div>@endif</td>
+                            <td>@if($user->auth == '1')
+                                    <div class="badge badge-light-success fw-bolder">Yönetici</div>
+                                @else
+                                    <div class="badge badge-light-primary fw-bolder">Öğretmen</div>
+                                @endif</td>
                             <!--end::Two step=-->
 
                             <!--begin::Joined-->

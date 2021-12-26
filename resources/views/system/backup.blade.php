@@ -34,8 +34,8 @@
                                         <a href="{{ route('dashboard') }}">CMS</a>
                                         <span class="mx-3">|</span>
                                         <a href="#">Yedek Yöneticisi</a>
-                                        <span class="mx-3">|</span>{{ round($foldersize/1024 ,3 ) }} MB
-                                        <span class="mx-3">|</span>{{ count(glob('backups' . "*.sql")) }} Yedek</div>
+                                        <span class="mx-3">|</span>{{ round($foldersize/1024/1024 ,3 ) }} MB
+                                        <span class="mx-3">|</span>{{ count(glob('backups/' . "*.sql")) }} Yedek</div>
                                 </div>
                                 <!--end::Title-->
                             </div>

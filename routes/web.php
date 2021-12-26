@@ -26,9 +26,12 @@ Route::get('/teacher-notices', '\App\Http\Controllers\InformationController@teac
 
 //Modules Links
 Route::get('/teacher', '\App\Http\Controllers\ModulesController@teacher_module')->name('teachers')->middleware('auth');
-Route::get('/class', '\App\Http\Controllers\ModulesController@class_module')->name('class')->middleware('auth');
+Route::get('/lesson', '\App\Http\Controllers\ModulesController@lesson_module')->name('class')->middleware('auth');
 Route::get('/classroom', '\App\Http\Controllers\ModulesController@classroom_module')->name('classroom')->middleware('auth');
 Route::get('/timetable', '\App\Http\Controllers\ModulesController@timetable_module')->name('timetable')->middleware('auth');
+
+// Module Actions
+Route::get('/lesson-delete', '\App\Http\Controllers\LessonController@delete')->name('class-delete')->middleware('auth');
 
 //System Links
 Route::get('/backup', '\App\Http\Controllers\BackupController@index')->name('backup')->middleware('auth');

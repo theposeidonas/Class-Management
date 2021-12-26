@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Classroom;
+use App\Models\Lesson;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -11,11 +12,11 @@ class BackupController extends Controller
 {
     public function __construct()
     {
-        setlocale(LC_ALL, 'tr_TR.UTF-8', 'tr_TR', 'tr', 'turkish');
+//        setlocale(LC_ALL, 'tr_TR.UTF-8', 'tr_TR', 'tr', 'turkish');
     }
     public function index()
     {
-        $backups = glob('backups' . "*.sql");
+        $backups = glob('backups/' . "*.sql");
         $foldersize = 0;
         foreach ($backups as $backup){
             $foldersize += filesize($backup);
@@ -31,10 +32,14 @@ class BackupController extends Controller
 
     public function restore(Request $request)
     {
+        DB::unprepared("SET FOREIGN_KEY_CHECKS = 0;");
+        Lesson::truncate();
         Classroom::truncate();
         $file= 'backups/'.$request->get('file');
         $sql = file_get_contents($file);
         DB::unprepared($sql);
+        DB::unprepared("SET FOREIGN_KEY_CHECKS = 1;");
+
         return redirect(route('backup'));
     }
 
@@ -53,13 +58,14 @@ class BackupController extends Controller
 
     public function backup()
     {
+        DB::unprepared("SET FOREIGN_KEY_CHECKS = 0;");
 
         $mysqlHostName      = env('DB_HOST');
         $mysqlUserName      = env('DB_USERNAME');
         $mysqlPassword      = env('DB_PASSWORD');
         $DbName             = env('DB_DATABASE');
         $backup_name        = "mybackup.sql";
-        $tables             = array("classroom"); //here your tables...
+        $tables             = array("classroom","lesson"); //here your tables...
 
         $connect = new \PDO("mysql:host=$mysqlHostName;dbname=$DbName;charset=utf8", "$mysqlUserName", "$mysqlPassword",array(\PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
         $get_all_table_query = "SHOW TABLES";
@@ -112,9 +118,9 @@ class BackupController extends Controller
         file_put_contents('backups/'.$file_name, $output);
         unlink($file_name);
 
+        DB::unprepared("SET FOREIGN_KEY_CHECKS = 1;");
 
-        return redirect(route('backup'));
-
+dd('başarılı');
     }
 
 }
