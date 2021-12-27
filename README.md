@@ -16,6 +16,8 @@ atamalarını yapabileceği, çakışan dersleri kontrol edebileceği bir yönet
 
 `Dersler Modülü : Aktif (Tamamlanmadı - v0.2.2)`
 
+`Profil Sayfası : Aktif (Tamamlanmadı - v0.2.5)`
+
 `Sınıf Zaman Tablosu: Yapım Aşamasında`
 
 `Sistem Yedekleme: Aktif (Bug mevcut - v0.2.2)`
@@ -34,6 +36,18 @@ Takım 4 kişiden oluşur, bunlar;
 * Doğacan Usta
 
 ## Versiyon Geçmişi
+
+#### v0.2.5
+* Dersler Listeleme sayfası bug fix
+* Timetable sayfası bug fix
+* Header linkleri düzenlendi
+* UserController optimize edildi
+* Profil Sayfası oluşturuldu.
+  * Şifre güncelleme eklendi
+  * E-Posta güncelleme eklendi
+  * Fakülte güncelleme eklendi
+  * Profil sayfasına öğretmenin haftalık ders programı eklendi
+
 
 #### v0.2.3
 * Backup Sayfası
@@ -167,9 +181,8 @@ Takım 4 kişiden oluşur, bunlar;
 ### Yapım Aşamasında Olanlar
 
 - Toolbar Hızlı Arama
-- Profil, Sınıf ve Ders detay sayfaları
+- Sınıf ve Ders detay sayfaları
 - Öğretmen Duyuruları
-- Full Timetable sayfası (CSS JS sorunları bulunuyor yapım aşamasında)
 
 ### License
 

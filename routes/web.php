@@ -33,6 +33,16 @@ Route::get('/timetable', '\App\Http\Controllers\ModulesController@timetable_modu
 // Module Actions
 Route::get('/lesson-delete', '\App\Http\Controllers\LessonController@delete')->name('class-delete')->middleware('auth');
 
+//Module Detail links
+Route::get('/profile', '\App\Http\Controllers\UserController@index')->name('profile')->middleware('auth');
+
+//Profile Update Links
+Route::post('/update_email', '\App\Http\Controllers\UserController@update_email')->name('update_email')->middleware('auth');
+Route::post('/update_password', '\App\Http\Controllers\UserController@update_password')->name('update_password')->middleware('auth');
+Route::post('/update_faculty', '\App\Http\Controllers\UserController@update_faculty')->name('update_faculty')->middleware('auth');
+
+
+
 //System Links
 Route::get('/backup', '\App\Http\Controllers\BackupController@index')->name('backup')->middleware('auth');
 
