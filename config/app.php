@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     |
     */
-    'version' => '0.2.5',
+    'version' => '0.4.0',
     'name' => env('APP_NAME', 'Class Management System'),
 
     /*
