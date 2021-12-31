@@ -469,7 +469,7 @@
 
                             <!--begin::User details-->
                             <div>
-                                <a href="#" class="text-gray-800 text-hover-primary mb-1">{{ $lesson->title }}</a>
+                                <a class="text-gray-800 text-hover-primary mb-1">{{ $lesson->title }}</a>
                             </div>
                             <!--begin::User details-->
                         </td>

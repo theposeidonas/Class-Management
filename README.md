@@ -37,6 +37,26 @@ Takım 4 kişiden oluşur, bunlar;
 
 ## Versiyon Geçmişi
 
+#### v0.4.0
+* Timetable sınıfın bir column'u olmaktan ayrılıp yeni bir tablo şekline dönüştürüldü
+* Timetable Modeli eklendi
+* Profil sayfası user olarak değiştirildi. 
+  * Artık profil sayfası yerine user id çekerek bilgiler gösteriliyor
+* Backup sayfası sadece yöneticilerin girebildiği bir sayfa olarak değiştirildi
+* Sınıf detay sayfası oluşturuldu
+  * Sınıf özellikleri eklendi
+  * Sınıfın yetkilisinin bilgileri eklendi
+  * Sınıfın Timetable'ı eklendi
+  * Sınıf listeleme sayfasından link oluşturuldu (Sınıf ismine tıklayınca)
+* Classroom Modeli düzenlendi (Timetable kaldırıldı)
+* ClassroomController düzenlendi (Timetable kaldırıldı, detail fonksiyonu eklendi)
+* Footerdan Copyright logosu kaldırıldı. (Açık kaynak kodlu bir yazılım olduğu için)
+* Header yönetici olmayanlar için sistem sekmesini gizleme eklendi
+* Kullanıcı listeleme sayfasına link eklendi (Kullanıcı ismine tıklayınca detay sayfasına gidiyor)
+* UserController düzenlendi
+  * index yerine detay sayfası için user_id ile bilgileri gönderilmesi sağlandı
+* Yeni route'lar eklendi
+
 #### v0.2.5
 * Dersler Listeleme sayfası bug fix
 * Timetable sayfası bug fix

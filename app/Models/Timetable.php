@@ -5,22 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Classroom extends Model
+class Timetable extends Model
 {
     use HasFactory;
-    protected $table = 'classroom';
+    protected $table = 'timetable';
     /**
      * The attributes that are mass assignable.
      *
      * @var string[]
      */
     protected $fillable = [
-        'title',
-        'description',
-        'capacity',
-        'spec_json',
-        'updated_at',
-        'created_at',
+       'classroom_id',
+        'lesson_id',
+        'user_id',
+        'day',
+        'time'
 
 
     ];

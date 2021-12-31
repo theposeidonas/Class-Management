@@ -3,16 +3,39 @@
 namespace App\Http\Controllers;
 
 use App\Models\Classroom;
+use App\Models\Timetable;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class ClassroomController extends Controller
 {
+    public function detail($classroom_id)
+    {
+        $user_list = User::get();
+        $user= Classroom::where('id',$classroom_id)->select('author')->first();
+        $user = User::where('id',$user->author)->first();
+        $classroom = Classroom::where('id',$classroom_id)->first();
+        $spec = json_decode($classroom->spec_json);
+        $monday = Timetable::LeftJoin('users','timetable.user_id','=','users.id')->LeftJoin('classroom','timetable.classroom_id','=','classroom.id')->LeftJoin('lesson','timetable.lesson_id','=','lesson.id')->where('day','monday')->where('classroom_id', $classroom_id)->select('users.name','classroom.title as classroom_name','lesson.title as lesson_name','timetable.*')->orderBy('time')->get();
+
+        $tuesday = Timetable::LeftJoin('users','timetable.user_id','=','users.id')->LeftJoin('classroom','timetable.classroom_id','=','classroom.id')->LeftJoin('lesson','timetable.lesson_id','=','lesson.id')->where('day','tuesday')->where('classroom_id', $classroom_id)->select('users.name','classroom.title as classroom_name','lesson.title as lesson_name','timetable.*')->orderBy('time')->get();
+        $wednesday = Timetable::LeftJoin('users','timetable.user_id','=','users.id')->LeftJoin('classroom','timetable.classroom_id','=','classroom.id')->LeftJoin('lesson','timetable.lesson_id','=','lesson.id')->where('day','wednesday')->where('classroom_id', $classroom_id)->select('users.name','classroom.title as classroom_name','lesson.title as lesson_name','timetable.*')->orderBy('time')->get();
+        $thursday = Timetable::LeftJoin('users','timetable.user_id','=','users.id')->LeftJoin('classroom','timetable.classroom_id','=','classroom.id')->LeftJoin('lesson','timetable.lesson_id','=','lesson.id')->where('day','thursday')->where('classroom_id', $classroom_id)->select('users.name','classroom.title as classroom_name','lesson.title as lesson_name','timetable.*')->orderBy('time')->get();
+        $friday = Timetable::LeftJoin('users','timetable.user_id','=','users.id')->LeftJoin('classroom','timetable.classroom_id','=','classroom.id')->LeftJoin('lesson','timetable.lesson_id','=','lesson.id')->where('day','friday')->where('classroom_id', $classroom_id)->select('users.name','classroom.title as classroom_name','lesson.title as lesson_name','timetable.*')->orderBy('time')->get();
+
+        $timetable_list= [$monday,$tuesday,$wednesday,$thursday,$friday];
+        return view('modules.classroom-detail',[
+            'profile'=>$user,
+            'users_list'=>$user_list,
+            'classroom'=>$classroom,
+            'spec'=>$spec,
+            'timetable_list'=>$timetable_list
+        ]);
+    }
     public function store(Request $request)
     {
         $classroom = new Classroom();
-
         $classroom->title = $request->input('title');
         $classroom->description = $request->input('description');
         $classroom->author = $request->input('author');
@@ -30,64 +53,6 @@ class ClassroomController extends Controller
           'ac'=>$request->input('ac'),
         ];
         $classroom->spec_json = json_encode($spec_json);
-        $timetable = [
-          'Monday'=>[
-              '09:00 - 10:00'=>['',''],
-              '10:00 - 11:00'=>['',''],
-              '11:00 - 12:00'=>['',''],
-              '12:00 - 13:00'=>['',''],
-              '13:00 - 14:00'=>['',''],
-              '14:00 - 15:00'=>['',''],
-              '15:00 - 16:00'=>['',''],
-              '16:00 - 17:00'=>['',''],
-              '17:00 - 18:00'=>['','']
-          ],
-          'Tuesday'=>[
-              '09:00 - 10:00'=>['',''],
-              '10:00 - 11:00'=>['',''],
-              '11:00 - 12:00'=>['',''],
-              '12:00 - 13:00'=>['',''],
-              '13:00 - 14:00'=>['',''],
-              '14:00 - 15:00'=>['',''],
-              '15:00 - 16:00'=>['',''],
-              '16:00 - 17:00'=>['',''],
-              '17:00 - 18:00'=>['','']
-          ],
-          'Wednesday'=>[
-              '09:00 - 10:00'=>['',''],
-              '10:00 - 11:00'=>['',''],
-              '11:00 - 12:00'=>['',''],
-              '12:00 - 13:00'=>['',''],
-              '13:00 - 14:00'=>['',''],
-              '14:00 - 15:00'=>['',''],
-              '15:00 - 16:00'=>['',''],
-              '16:00 - 17:00'=>['',''],
-              '17:00 - 18:00'=>['','']
-          ],
-          'Thursday'=>[
-              '09:00 - 10:00'=>['',''],
-              '10:00 - 11:00'=>['',''],
-              '11:00 - 12:00'=>['',''],
-              '12:00 - 13:00'=>['',''],
-              '13:00 - 14:00'=>['',''],
-              '14:00 - 15:00'=>['',''],
-              '15:00 - 16:00'=>['',''],
-              '16:00 - 17:00'=>['',''],
-              '17:00 - 18:00'=>['','']
-          ],
-          'Friday'=>[
-              '09:00 - 10:00'=>['',''],
-              '10:00 - 11:00'=>['',''],
-              '11:00 - 12:00'=>['',''],
-              '12:00 - 13:00'=>['',''],
-              '13:00 - 14:00'=>['',''],
-              '14:00 - 15:00'=>['',''],
-              '15:00 - 16:00'=>['',''],
-              '16:00 - 17:00'=>['',''],
-              '17:00 - 18:00'=>['','']
-          ]
-        ];
-        $classroom->time_table = json_encode($timetable);
         $classroom->updated_at = date('Y-m-d H:i:s');
         $classroom->created_at = date('Y-m-d H:i:s');
 

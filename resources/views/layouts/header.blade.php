@@ -186,6 +186,7 @@
                             </div>
                         </div>
                         <div class="menu-item pe-1"><span class="py-3">   |  </span></div>
+                        @if(auth()->user()->auth == 1)
                         <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
                              data-kt-menu-placement="bottom-start" class="menu-item menu-lg-down-accordion me-lg-1">
 												<span class="menu-link py-3">
@@ -234,7 +235,7 @@
 
                             </div>
                         </div>
-
+                        @endif
                         <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
                              data-kt-menu-placement="bottom-start" class="menu-item menu-lg-down-accordion me-lg-1">
 												<span class="menu-link py-3">
@@ -344,7 +345,7 @@
                                     <!--begin::Username-->
                                     <div class="d-flex flex-column">
                                         <div class="fw-bolder d-flex align-items-center fs-5">{{ auth()->user()->name }}
-                                            <span class="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">Yönetici</span>
+                                            <span class="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">@if(auth()->user()->auth == 1) Yönetici @else Öğretmen @endif</span>
                                         </div>
                                         <a href="#" class="fw-bold text-muted text-hover-primary fs-7">{{ auth()->user()->email }}</a>
                                     </div>
@@ -357,7 +358,7 @@
                             <!--end::Menu separator-->
                             <!--begin::Menu item-->
                             <div class="menu-item px-5">
-                                <a href="{{ route('profile') }}" class="menu-link px-5">Profil</a>
+                                <a href="{{ route('user',[auth()->user()->id]) }}" class="menu-link px-5">Profil</a>
                             </div>
                             <!--end::Menu item-->
                             <!--begin::Menu item-->

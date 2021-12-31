@@ -737,7 +737,7 @@
 
                                 <!--begin::User details-->
 
-                                <a href="#" class="text-gray-800 text-hover-primary mb-1 text-capitalize">{{ $classroom->title }}</a>
+                                <a href="{{ route('classroom-detail',[$classroom->id]) }}" class="text-gray-800 text-hover-primary mb-1 text-capitalize">{{ $classroom->title }}</a>
 
 
                                 <!--begin::User details-->

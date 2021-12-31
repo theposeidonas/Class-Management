@@ -3,7 +3,7 @@
     <div class="container-xxl d-flex flex-column flex-md-row align-items-center justify-content-between">
         <!--begin::Copyright-->
         <div class="text-dark order-2 order-md-1">
-            <span class="text-muted fw-bold me-1">{{ now()->year }}©</span>
+            <span class="text-muted fw-bold me-1">{{ now()->year }}</span>
             <a href="/" target="_blank" class="text-gray-800 text-hover-primary">Class Management System v{{ config('app.version') }}</a>
         </div>
         <!--end::Copyright-->

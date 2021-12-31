@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Classroom;
 use App\Models\Lesson;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -12,6 +13,12 @@ class BackupController extends Controller
 {
     public function __construct()
     {
+        $this->middleware(function ($request, $next) {
+            $auth = Auth::user()->auth;
+            if($auth != 1) abort('404');
+            return $next($request);
+        });
+
 //        setlocale(LC_ALL, 'tr_TR.UTF-8', 'tr_TR', 'tr', 'turkish');
     }
     public function index()
@@ -72,7 +79,7 @@ class BackupController extends Controller
         $mysqlPassword      = env('DB_PASSWORD');
         $DbName             = env('DB_DATABASE');
         $backup_name        = "mybackup.sql";
-        $tables             = array("classroom","lesson"); //here your tables...
+        $tables             = array("classroom","lesson","timetable"); //here your tables...
 
         $connect = new \PDO("mysql:host=$mysqlHostName;dbname=$DbName;charset=utf8", "$mysqlUserName", "$mysqlPassword",array(\PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
         $get_all_table_query = "SHOW TABLES";
