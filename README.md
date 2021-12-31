@@ -14,13 +14,13 @@ atamalarını yapabileceği, çakışan dersleri kontrol edebileceği bir yönet
 
 `Sınıf Modülü : Aktif`
 
-`Dersler Modülü : Aktif (Tamamlanmadı - v0.2.2)`
+`Dersler Modülü : Aktif`
 
-`Profil Sayfası : Aktif (Tamamlanmadı - v0.2.5)`
+`Profil Sayfası : Aktif`
 
 `Sınıf Zaman Tablosu: Yapım Aşamasında`
 
-`Sistem Yedekleme: Aktif (Bug mevcut - v0.2.2)`
+`Sistem Yedekleme: Aktif`
 
 `Hızlı Arama: Yapım Aşamasında`
 
