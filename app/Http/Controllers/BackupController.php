@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\Classroom;
 use App\Models\Lesson;
+use App\Models\Notification;
+use App\Models\Timetable;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Carbon\Carbon;
@@ -29,11 +31,15 @@ class BackupController extends Controller
             $foldersize += filesize($backup);
         }
         $Users=User::get();
+        $notify = new \stdClass();
+        $notify->content = Notification::orderBy('created_at','desc')->get();
+        $notify->count = count(Notification::get());
         $backups=glob('backups/*.sql');
         return view("system.backup", [
             'users_list'=>$Users,
             'backups'=>$backups,
             'foldersize'=>$foldersize,
+            'notify'=>$notify,
         ]);
     }
 
@@ -42,6 +48,8 @@ class BackupController extends Controller
         DB::unprepared("SET FOREIGN_KEY_CHECKS = 0;");
         Lesson::truncate();
         Classroom::truncate();
+        Timetable::truncate();
+        Notification::truncate();
         $file= 'backups/'.$request->get('file');
         $sql = file_get_contents($file);
         DB::unprepared($sql);
@@ -79,7 +87,7 @@ class BackupController extends Controller
         $mysqlPassword      = env('DB_PASSWORD');
         $DbName             = env('DB_DATABASE');
         $backup_name        = "mybackup.sql";
-        $tables             = array("classroom","lesson","timetable"); //here your tables...
+        $tables             = array("classroom","lesson","timetable","notification"); //here your tables...
 
         $connect = new \PDO("mysql:host=$mysqlHostName;dbname=$DbName;charset=utf8", "$mysqlUserName", "$mysqlPassword",array(\PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
         $get_all_table_query = "SHOW TABLES";

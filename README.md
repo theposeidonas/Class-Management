@@ -37,6 +37,15 @@ Takım 4 kişiden oluşur, bunlar;
 
 ## Versiyon Geçmişi
 
+#### v0.7.1
+* Bildirimler eklendi, artık yöneticiler bildirim ekleyebilirler
+* Bildirimler her sayfaya gönderiliyor, menüden son 5 bildirim gözüküyor
+* Bildirim tablosu ve modeli oluşturuldu
+* Timetable artık tüm dersleri gösteriyor
+* JS timetable text yerine html olarak düzeltildi
+* Toolbar'a bildirim ekleme modülü eklendi
+* Genel Bug temizlemeleri
+
 #### v0.4.0
 * Timetable sınıfın bir column'u olmaktan ayrılıp yeni bir tablo şekline dönüştürüldü
 * Timetable Modeli eklendi

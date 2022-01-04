@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Lesson;
+use App\Models\Notification;
 use App\Models\Timetable;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -12,6 +13,9 @@ class UserController extends Controller
     public function user($user_id)
     {
         $users_list = User::get();
+        $notify = new \stdClass();
+        $notify->content = Notification::orderBy('created_at','desc')->get();
+        $notify->count = count(Notification::get());
         $profile = User::where('id',$user_id)->first();
         $lesson_list = Lesson::where('author',$user_id)->get();
         $monday = Timetable::LeftJoin('users','timetable.user_id','=','users.id')->LeftJoin('classroom','timetable.classroom_id','=','classroom.id')->LeftJoin('lesson','timetable.lesson_id','=','lesson.id')->where('day','monday')->where('user_id',$user_id)->select('users.name','classroom.title as classroom_name','lesson.title as lesson_name','timetable.*')->orderBy('time')->get();
@@ -26,6 +30,7 @@ class UserController extends Controller
             'users_list'=>$users_list,
             'lesson_list'=>$lesson_list,
             'timetable_list'=>$timetable_list,
+            'notify'=>$notify,
             'profile'=>$profile
         ]);
     }

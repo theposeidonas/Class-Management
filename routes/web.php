@@ -38,12 +38,6 @@ Route::get('/profile/{user_id}', '\App\Http\Controllers\UserController@user')->n
 Route::get('/classroom/{classroom_id}', '\App\Http\Controllers\ClassroomController@detail')->name('classroom-detail')->middleware('auth');
 
 
-//Profile Update Links
-Route::post('/update_email', '\App\Http\Controllers\UserController@update_email')->name('update_email')->middleware('auth');
-Route::post('/update_password', '\App\Http\Controllers\UserController@update_password')->name('update_password')->middleware('auth');
-Route::post('/update_faculty', '\App\Http\Controllers\UserController@update_faculty')->name('update_faculty')->middleware('auth');
-
-
 
 //System Links
 Route::get('/backup', '\App\Http\Controllers\BackupController@index')->name('backup')->middleware('auth');
@@ -64,6 +58,8 @@ Route::get('/delete-backup', '\App\Http\Controllers\BackupController@delete')->n
 Route::post('/login', '\App\Http\Controllers\Controller@login')->name('login_post');
 Route::get('/logout', '\App\Http\Controllers\Controller@logout')->name('logout_post');
 
+// Notification post
+Route::post('/add_notification', '\App\Http\Controllers\InformationController@store')->name('add_not')->middleware('auth');
 
 //user post
 Route::post('/add_user', '\App\Http\Controllers\UserController@store')->name('add_user')->middleware('auth');
@@ -72,6 +68,12 @@ Route::post('/delete_user', '\App\Http\Controllers\UserController@delete')->name
 //Classroom post
 Route::post('/add_classroom', '\App\Http\Controllers\ClassroomController@store')->name('create_classroom')->middleware('auth');
 Route::post('/delete_classroom', '\App\Http\Controllers\ClassroomController@delete')->name('delete_classroom')->middleware('auth');
+
+//Profile Update Links
+Route::post('/update_email', '\App\Http\Controllers\UserController@update_email')->name('update_email')->middleware('auth');
+Route::post('/update_password', '\App\Http\Controllers\UserController@update_password')->name('update_password')->middleware('auth');
+Route::post('/update_faculty', '\App\Http\Controllers\UserController@update_faculty')->name('update_faculty')->middleware('auth');
+
 
 //Lesson post
 Route::post('/add_lesson', '\App\Http\Controllers\LessonController@store')->name('create_lesson')->middleware('auth');

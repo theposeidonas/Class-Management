@@ -51,11 +51,19 @@
                                         data-content="{{ $i }}pzt" data-event="event-2">
                                         <a href="#0">
                                             <em class="event-name">Tüm Dersler</em>
-                                            <div class="d-none event-info">Pazartesi {{ $i }} Dersleri</div>
+                                            <div class="d-none event-info">Bugünün Saatin Dersleri<br><br>
+                                                @foreach($timetable_list[0] as $today)
+                                                    @if($today->time == $i)
+                                                Ders Kodu: {{ $today->lesson_name }}<br>
+                                                Öğretmen:  {{ $today->name }}<br>
+                                                Sınıf:  {{ $today->classroom_name }}<br>
+                                                Başlangıç Saati: {{ Carbon::parse($today->time)->format('h:i') }}<br>
+                                                Bitiş Saati: {{ Carbon::parse($today->time_end)->format('h:i') }}<br><br>
+                                                    @endif
+                                                @endforeach
+                                            </div>
                                         </a>
-
                                     </li>
-
                                     @endfor
 
 
@@ -71,7 +79,17 @@
                                             data-content="event-abs-circuit" data-event="event-1">
                                             <a href="#0">
                                                 <em class="event-name">Tüm Dersler</em>
-                                                <div class="d-none event-info">Salı {{ $i }} Dersleri</div>
+                                                <div class="d-none event-info">Bugünün Saatin Dersleri<br><br>
+                                                    @foreach($timetable_list[1] as $today)
+                                                        @if($today->time == $i)
+                                                            Ders Kodu: {{ $today->lesson_name }}<br>
+                                                            Öğretmen:  {{ $today->name }}<br>
+                                                            Sınıf:  {{ $today->classroom_name }}<br>
+                                                            Başlangıç Saati: {{ Carbon::parse($today->time)->format('h:i') }}<br>
+                                                            Bitiş Saati: {{ Carbon::parse($today->time_end)->format('h:i') }}<br><br>
+                                                        @endif
+                                                    @endforeach
+                                                </div>
                                             </a>
 
                                         </li>
@@ -89,7 +107,17 @@
                                             data-content="event-abs-circuit" data-event="event-3">
                                             <a href="#0">
                                                 <em class="event-name">Tüm Dersler</em>
-                                                <div class="d-none event-info">Çarşamba {{ $i }} Dersleri</div>
+                                                <div class="d-none event-info">Bugünün Saatin Dersleri<br><br>
+                                                    @foreach($timetable_list[2] as $today)
+                                                        @if($today->time == $i)
+                                                            Ders Kodu: {{ $today->lesson_name }}<br>
+                                                            Öğretmen:  {{ $today->name }}<br>
+                                                            Sınıf:  {{ $today->classroom_name }}<br>
+                                                            Başlangıç Saati: {{ Carbon::parse($today->time)->format('h:i') }}<br>
+                                                            Bitiş Saati: {{ Carbon::parse($today->time_end)->format('h:i') }}<br><br>
+                                                        @endif
+                                                    @endforeach
+                                                </div>
                                             </a>
 
                                         </li>
@@ -107,7 +135,17 @@
                                             data-content="event-abs-circuit" data-event="event-4">
                                             <a href="#0">
                                                 <em class="event-name">Tüm Dersler</em>
-                                                <div class="d-none event-info">Perşembe {{ $i }} Dersleri</div>
+                                                <div class="d-none event-info">Bugünün Saatin Dersleri<br><br>
+                                                    @foreach($timetable_list[3] as $today)
+                                                        @if($today->time == $i)
+                                                            Ders Kodu: {{ $today->lesson_name }}<br>
+                                                            Öğretmen:  {{ $today->name }}<br>
+                                                            Sınıf:  {{ $today->classroom_name }}<br>
+                                                            Başlangıç Saati: {{ Carbon::parse($today->time)->format('h:i') }}<br>
+                                                            Bitiş Saati: {{ Carbon::parse($today->time_end)->format('h:i') }}<br><br>
+                                                        @endif
+                                                    @endforeach
+                                                </div>
                                             </a>
 
                                         </li>
@@ -125,7 +163,17 @@
                                             data-content="event-abs-circuit" data-event="event-1">
                                             <a href="#0">
                                                 <em class="event-name">Tüm Dersler</em>
-                                                <div class="d-none event-info">Cuma {{ $i }} Dersleri</div>
+                                                <div class="d-none event-info">Bugünün Saatin Dersleri<br><br>
+                                                    @foreach($timetable_list[4] as $today)
+                                                        @if($today->time == $i)
+                                                            Ders Kodu: {{ $today->lesson_name }}<br>
+                                                            Öğretmen:  {{ $today->name }}<br>
+                                                            Sınıf:  {{ $today->classroom_name }}<br>
+                                                            Başlangıç Saati: {{ Carbon::parse($today->time)->format('h:i') }}<br>
+                                                            Bitiş Saati: {{ Carbon::parse($today->time_end)->format('h:i') }}<br><br>
+                                                        @endif
+                                                    @endforeach
+                                                </div>
                                             </a>
 
                                         </li>
@@ -153,7 +201,7 @@
                             <div class="body-bg"></div>
                         </div>
 
-                        <a href="#0" class="close">Close</a>
+                        <a href="#0" class="close"></a>
                     </div>
 
                     <div class="cover-layer"></div>

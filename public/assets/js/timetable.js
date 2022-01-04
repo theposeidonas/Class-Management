@@ -116,7 +116,7 @@ jQuery(document).ready(function($){
         this.modal.attr('data-event', event.parent().attr('data-event'));
 
         //update event content
-        this.modalBody.find('.event-info').text(event.find('.event-info').text());
+        this.modalBody.find('.event-info').html(event.find('.event-info').html());
         this.element.addClass('content-loaded');
         this.element.addClass('modal-is-open');
 

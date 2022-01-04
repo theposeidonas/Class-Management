@@ -26,6 +26,7 @@
                     <div class=" fade show active">
                         <!--begin::Items-->
                         <div>
+                            @foreach($notifications as $not)
                             <!--begin::Item-->
                             <div class="d-flex flex-stack py-4">
                                 <!--begin::Section-->
@@ -45,18 +46,18 @@
                                     <!--end::Symbol-->
                                     <!--begin::Title-->
                                     <div class="mb-0 me-2">
-                                        <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bolder">Duyuru Başlığı</a>
-                                        <div class="text-gray-600 fs-7 pt-1">Duyuru açıklaması uzun şekilde.Duyuru açıklaması uzun şekilde.Duyuru açıklaması uzun şekilde.Duyuru açıklaması uzun şekilde.Duyuru açıklaması uzun şekilde.Duyuru açıklaması uzun şekilde.Duyuru açıklaması uzun şekilde.Duyuru açıklaması uzun şekilde.Duyuru açıklaması uzun şekilde.Duyuru açıklaması uzun şekilde.</div>
+                                        <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bolder">{{ $not->title }}</a>
+                                        <div class="text-gray-600 fs-7 pt-1">{{ $not->content }}</div>
                                     </div>
                                     <!--end::Title-->
                                 </div>
                                 <!--end::Section-->
                                 <!--begin::Label-->
-                                <span class="badge badge-light fs-8">2 saat</span>
+                                <span class="badge badge-light fs-8">{{ Carbon::parse($not->created_at)->diffForHumans(Carbon::now()) }}</span>
                                 <!--end::Label-->
                             </div>
                             <!--end::Item-->
-
+                            @endforeach
                         </div>
                         <!--end::Items-->
 

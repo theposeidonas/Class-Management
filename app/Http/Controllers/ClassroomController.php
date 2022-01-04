@@ -13,6 +13,9 @@ class ClassroomController extends Controller
     public function detail($classroom_id)
     {
         $user_list = User::get();
+        $notify = new \stdClass();
+        $notify->content = Notification::orderBy('created_at','desc')->get();
+        $notify->count = count(Notification::get());
         $user= Classroom::where('id',$classroom_id)->select('author')->first();
         $user = User::where('id',$user->author)->first();
         $classroom = Classroom::where('id',$classroom_id)->first();
@@ -30,6 +33,7 @@ class ClassroomController extends Controller
             'users_list'=>$user_list,
             'classroom'=>$classroom,
             'spec'=>$spec,
+            'notify'=>$notify,
             'timetable_list'=>$timetable_list
         ]);
     }
