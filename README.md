@@ -18,7 +18,9 @@ atamalarını yapabileceği, çakışan dersleri kontrol edebileceği bir yönet
 
 `Profil Sayfası : Aktif`
 
-`Sınıf Zaman Tablosu: Yapım Aşamasında`
+`Sınıf Zaman Tablosu: Aktif`
+
+`Bildirim Modülü: Aktif`
 
 `Sistem Yedekleme: Aktif`
 
@@ -210,8 +212,7 @@ Takım 4 kişiden oluşur, bunlar;
 ### Yapım Aşamasında Olanlar
 
 - Toolbar Hızlı Arama
-- Sınıf ve Ders detay sayfaları
-- Öğretmen Duyuruları
+- Timetable'a ekleme yapma modülü
 
 ### License
 
