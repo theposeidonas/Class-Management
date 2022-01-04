@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Classroom;
 use App\Models\Timetable;
+use App\Models\Notification;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
