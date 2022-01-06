@@ -186,19 +186,20 @@
                 <!--end::Menu-->
             </div>
             <!--end::SearchBar-->
-            @if(auth()->user()->auth == 1) <a href="#" class="btn btn-success my-2" data-bs-toggle="modal" data-bs-target="#kt_modal_create_app">Yeni Bildirim</a> @endif
+            <a href="{{ route('addtotimetable') }}" class="btn btn-custom btn-color-white btn-active-color-success my-2 me-2 me-lg-6" >Yeni Ders Planı</a>
+            @if(auth()->user()->auth == 1) <a href="#" class="btn btn-success my-2" data-bs-toggle="modal" data-bs-target="#kt_modal_new_notify">Yeni Bildirim</a> @endif
         </div>
         <!--end::Actions-->
     </div>
     <!--end::Container-->
     <!--begin::Modal - Add task-->
-    <div class="modal fade" id="kt_modal_create_app" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="kt_modal_new_notify" tabindex="-1" aria-hidden="true">
         <!--begin::Modal dialog-->
         <div class="modal-dialog modal-dialog-centered mw-650px">
             <!--begin::Modal content-->
             <div class="modal-content">
                 <!--begin::Modal header-->
-                <div class="modal-header" id="kt_modal_add_user_header">
+                <div class="modal-header" id="kt_modal_new_notify_header">
                     <!--begin::Modal title-->
                     <h2 class="fw-bolder">Bildirim ekle</h2>
                     <!--end::Modal title-->
@@ -219,7 +220,7 @@
                 <!--begin::Modal body-->
                 <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
                     <!--begin::Form-->
-                    <form id="kt_modal_create_app" class="form" action="{{ route('add_not') }}" method="post">
+                    <form id="kt_modal_new_notify" class="form" action="{{ route('add_not') }}" method="post">
                         @csrf
                         <!--begin::Scroll-->
                         <div class="d-flex flex-column scroll-y me-n7 pe-7" id="kt_modal_add_user_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_user_header" data-kt-scroll-wrappers="#kt_modal_add_user_scroll" data-kt-scroll-offset="300px">

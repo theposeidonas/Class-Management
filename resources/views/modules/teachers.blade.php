@@ -130,6 +130,7 @@
                             <!--end::Svg Icon-->Export
                         </button>
                         <!--end::Export-->
+                        @if(auth()->user()->auth == 1)
                         <!--begin::Add user-->
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                 data-bs-target="#kt_modal_add_user">
@@ -147,6 +148,7 @@
                             <!--end::Svg Icon-->Kullanıcı Ekle
                         </button>
                         <!--end::Add user-->
+                        @endif
                     </div>
                     <!--end::Toolbar-->
                     <!--begin::Group actions-->
@@ -745,8 +747,9 @@
                                     class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4"
                                     data-kt-menu="true">
                                     <!--begin::Menu item-->
+                                    @if(auth()->user()->auth == 1)
                                     <div class="menu-item px-3">
-                                        <a href="#" class="menu-link px-3">Düzenle</a>
+                                        <a href="{{ route('user',['user_id'=>$user->id]) }}" class="menu-link px-3">Düzenle</a>
                                     </div>
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
@@ -755,6 +758,11 @@
                                            data-kt-users-table-filter="delete_row">Sil</a>
                                     </div>
                                     <!--end::Menu item-->
+                                    @else
+                                        <div class="menu-item px-3">
+                                            <a href="{{ route('user',['user_id'=>$user->id]) }}" class="menu-link px-3">Profile Git</a>
+                                        </div>
+                                    @endif
                                 </div>
                                 <!--end::Menu-->
                             </td>

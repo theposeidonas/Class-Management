@@ -20,6 +20,8 @@ atamalarını yapabileceği, çakışan dersleri kontrol edebileceği bir yönet
 
 `Sınıf Zaman Tablosu: Aktif`
 
+`Ders Planlama: Yapım Aşamasında`
+
 `Bildirim Modülü: Aktif`
 
 `Sistem Yedekleme: Aktif`
@@ -38,6 +40,23 @@ Takım 4 kişiden oluşur, bunlar;
 * Doğacan Usta
 
 ## Versiyon Geçmişi
+
+#### v0.9.0
+* Sınıflara fakülteler eklendi
+* Sınıf fakülteye göre filtreleme eklendi (Listeleme sayfasında)
+* Sınıf detay sayfasında sınıfa dair bilgiler eklendi
+* Composer json_decode eklendi
+* Öğretmenler artık sadece yönetici ise yeni kullanıcı ekleyebilir
+* Toolbar yeni ders planı ekle butonu eklendi
+* Sınıf sorgulama ve ders planı ekleme modülü yapım aşamasına girdi
+  * JS AJAX ile sorgulama ve anında sınıfları listeleme fonksiyonları yazıldı
+  * Yeni rotalar eklendi
+  * Yeni ders planı ekle sayfası eklendi
+  * Ders planı ekle sayfası js dosyası layouts'un içerisine eklendi
+  * Ders planı filtreleme sayfası 5 adımda düzenlendi
+  * Şuan için yapım aşamasında
+    * Ajax doğru dönüyor
+    * Ajax verilerine göre 3. bölümün Select kısımları değiştirilmesi gerek (Yapım Aşamasında)
 
 #### v0.7.1
 * Bildirimler eklendi, artık yöneticiler bildirim ekleyebilirler
@@ -212,7 +231,6 @@ Takım 4 kişiden oluşur, bunlar;
 ### Yapım Aşamasında Olanlar
 
 - Toolbar Hızlı Arama
-- Timetable'a ekleme yapma modülü
 
 ### License
 

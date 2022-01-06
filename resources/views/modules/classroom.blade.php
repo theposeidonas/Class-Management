@@ -79,7 +79,19 @@
                                 </div>
                                 <!--end::Input group-->
                                 <!--begin::Input group-->
-
+                                <div class="mb-10">
+                                    <label class="form-label fs-6 fw-bold">Fakülte:</label>
+                                    <select class="form-select form-select-solid fw-bolder" data-kt-select2="true"
+                                            data-placeholder="Seç" data-allow-clear="true"
+                                            data-kt-user-table-filter="Fakülte" data-hide-search="true">
+                                        <option></option>
+                                        <option value="Bilgisayar Mühendisliği">Bilgisayar Mühendisliği</option>
+                                        <option value="Elektrik Elektronik Mühendisliği">Elektrik Elektronik Mühendisliği</option>
+                                        <option value="Makina Mühendisliği">Makina Mühendisliği</option>
+                                        <option value="İnşaat Mühendisliği">İnşaat Mühendisliği</option>
+                                        <option value="Jeoloji Mühendisliği">Jeoloji Mühendisliği</option>
+                                    </select>
+                                </div>
                                 <!--end::Input group-->
                                 <!--begin::Actions-->
                                 <div class="d-flex justify-content-end">
@@ -117,6 +129,7 @@
                             <!--end::Svg Icon-->Export
                         </button>
                         <!--end::Export-->
+                    @if(auth()->user()->auth == 1)
                         <!--begin::Add user-->
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                 data-bs-target="#kt_modal_create_app">
@@ -134,6 +147,7 @@
                             <!--end::Svg Icon-->Sınıf Ekle
                         </button>
                         <!--end::Add user-->
+                        @endif
                     </div>
                     <!--end::Toolbar-->
                     <!--begin::Group actions-->
@@ -434,6 +448,25 @@
                                                                     <option
                                                                         value="{{ $user->id }}">{{ $user->name }}</option>
                                                                 @endforeach
+                                                            </select><br>
+                                                            <!--begin::Label-->
+                                                            <label class="d-flex align-items-center fs-5 fw-bold mb-4">
+                                                                <span class="required">Fakülte</span>
+                                                                <i class="fas fa-exclamation-circle ms-2 fs-7"
+                                                                   data-bs-toggle="tooltip"
+                                                                   title="Specify your apps framework"></i>
+                                                            </label>
+                                                            <!--end::Label-->
+                                                            <select
+                                                                    class="form-select form-select-solid"
+                                                                    data-control="select2"
+                                                                    data-placeholder="Fakülte Seçin" name="faculty" required>
+                                                                <option></option>
+                                                                <option value="Bilgisayar Mühendisliği">Bilgisayar Mühendisliği</option>
+                                                                <option value="Elektrik Elektronik Mühendisliği">Elektrik Elektronik Mühendisliği</option>
+                                                                <option value="Makina Mühendisliği">Makina Mühendisliği</option>
+                                                                <option value="İnşaat Mühendisliği">İnşaat Mühendisliği</option>
+                                                                <option value="Jeoloji Mühendisliği">Jeoloji Mühendisliği</option>
                                                             </select>
                                                             <div class="pt-10"><label class="d-flex align-items-center fs-5 fw-bold mb-4 ">
                                                                 <span class="required">Kapasite</span>
@@ -713,6 +746,7 @@
                         <th class="min-w-125px">İsim</th>
                         <th class="min-w-125px">Açıklama</th>
                         <th class="min-w-125px">Kapasite</th>
+                        <th class="min-w-125px">Fakülte</th>
                         <th class="min-w-125px">Yetkili</th>
                         <th class="min-w-125px">Eklenme</th>
                         <th class="text-end min-w-100px">Eylemler</th>
@@ -751,6 +785,11 @@
                                 <div class="badge badge-light fw-bolder">{{ $classroom->capacity }} Kişi</div>
                             </td>
                             <!--end::Last login=-->
+                            <!--begin::Last login=-->
+                            <td>
+                                <div class="badge badge-light fw-bolder">{{ $classroom->faculty }}</div>
+                            </td>
+                            <!--end::Last login=-->
                             <!--begin::Two step=-->
                             <td>
                                 <div class="badge badge-light-primary fw-bolder">{{ $classroom->name }}</div>
@@ -777,9 +816,10 @@
                                 <div
                                     class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4"
                                     data-kt-menu="true">
+                                    @if(auth()->user()->auth == 1)
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
-                                        <a href="view.html" class="menu-link px-3">Düzenle</a>
+                                        <a href="{{ route('classroom-detail',[$classroom->id]) }}" class="menu-link px-3">Düzenle</a>
                                     </div>
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
@@ -787,6 +827,11 @@
                                         <a href="#" class="menu-link px-3" data-kt-classroom-table-filter="delete_row">Sil</a>
                                     </div>
                                     <!--end::Menu item-->
+                                        @else
+                                            <div class="menu-item px-3">
+                                                <a href="{{ route('classroom-detail',[$classroom->id]) }}" class="menu-link px-3">Detaylar</a>
+                                            </div>
+                                    @endif
                                 </div>
                                 <!--end::Menu-->
                             </td>

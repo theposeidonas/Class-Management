@@ -45,6 +45,7 @@ class ClassroomController extends Controller
         $classroom->description = $request->input('description');
         $classroom->author = $request->input('author');
         $classroom->capacity = $request->input('capacity');
+        $classroom->faculty = $request->input('faculty');
         $spec_json = [
           'blackboard'=>$request->input('blackboard'),
           'special_seats'=>$request->input('special_seats'),

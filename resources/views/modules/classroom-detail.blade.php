@@ -191,7 +191,7 @@
                             <div class="card-header mt-6">
                                 <!--begin::Card title-->
                                 <div class="card-title flex-column">
-                                    <h2 class="mb-1">Sınıf İçeriği</h2>
+                                    <h2 class="mb-1">{{ $classroom->title }} Sınıf İçeriği</h2>
                                     <div class="fs-6 fw-bold text-muted">Sınıfın envanter içeriği</div>
                                 </div>
                                 <!--end::Card title-->
@@ -201,6 +201,9 @@
 
                             <!--begin::Card body-->
                             <div class="card-body p-9 pt-4">
+                                <div>
+                                    <p class="fs-6 fw-bold ">Açıklama : {{ $classroom->description }}<br>Fakülte : {{ $classroom->faculty }}<br>Kapasite : {{ $classroom->capacity }} Kişi</p>
+                                </div>
                                 <!--begin::Input-->
                                 <div class="row">
                                     <div class="col-md-6">
@@ -341,9 +344,7 @@
                                                     <!--end::User-->
                                                 </div>
                                                 <!--end::Info-->
-                                                <!--begin::Action-->
-                                                <a href="#" class="btn btn-light bnt-active-light-primary btn-sm">Derse Git</a>
-                                                <!--end::Action-->
+
                                             </div>
                                             <!--end::Time-->
                                         @endforeach
@@ -371,9 +372,7 @@
                                                     <!--end::User-->
                                                 </div>
                                                 <!--end::Info-->
-                                                <!--begin::Action-->
-                                                <a href="#" class="btn btn-light bnt-active-light-primary btn-sm">Derse Git</a>
-                                                <!--end::Action-->
+
                                             </div>
                                             <!--end::Time-->
                                         @endforeach
@@ -401,9 +400,7 @@
                                                     <!--end::User-->
                                                 </div>
                                                 <!--end::Info-->
-                                                <!--begin::Action-->
-                                                <a href="#" class="btn btn-light bnt-active-light-primary btn-sm">Derse Git</a>
-                                                <!--end::Action-->
+
                                             </div>
                                             <!--end::Time-->
                                         @endforeach
@@ -431,9 +428,7 @@
                                                     <!--end::User-->
                                                 </div>
                                                 <!--end::Info-->
-                                                <!--begin::Action-->
-                                                <a href="#" class="btn btn-light bnt-active-light-primary btn-sm">Derse Git</a>
-                                                <!--end::Action-->
+
                                             </div>
                                             <!--end::Time-->
                                         @endforeach
@@ -461,9 +456,7 @@
                                                     <!--end::User-->
                                                 </div>
                                                 <!--end::Info-->
-                                                <!--begin::Action-->
-                                                <a href="#" class="btn btn-light bnt-active-light-primary btn-sm">Derse Git</a>
-                                                <!--end::Action-->
+
                                             </div>
                                             <!--end::Time-->
                                         @endforeach

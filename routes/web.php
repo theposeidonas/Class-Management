@@ -51,6 +51,11 @@ Route::get('/download-backup', '\App\Http\Controllers\BackupController@download'
 Route::get('/restore-backup', '\App\Http\Controllers\BackupController@restore')->name('restore')->middleware('auth');
 Route::get('/delete-backup', '\App\Http\Controllers\BackupController@delete')->name('delete')->middleware('auth');
 
+// Addto Timetable Links
+Route::get('/addto-timetable', '\App\Http\Controllers\ModulesController@addtotimetable')->name('addtotimetable')->middleware('auth');
+Route::post('/check-timetable', '\App\Http\Controllers\ModulesController@checktimetable')->name('checktimetable')->middleware('auth');
+
+
 
 //POST Links
 

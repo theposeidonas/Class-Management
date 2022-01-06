@@ -19,6 +19,7 @@ class Classroom extends Model
         'description',
         'capacity',
         'spec_json',
+        'faculty',
         'updated_at',
         'created_at',
 

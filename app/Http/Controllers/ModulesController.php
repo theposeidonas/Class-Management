@@ -73,5 +73,62 @@ class ModulesController extends Controller
             'timetable_list'=>$timetable_list,
         ]);
     }
+    public function addtotimetable()
+    {
+        $lessons = Lesson::where('author', auth()->user()->id)->get();
+        $classrooms = Classroom::get();
+        return view("modules.addto-timetable",[
+            'lessons'=>$lessons,
+            'classrooms'=>$classrooms
+        ]);
+    }
+
+
+
+    public function checktimetable(Request $request)
+    {
+        if($request->input('faculty')=='personal')
+        {
+            $classrooms = Classroom::where('faculty',auth()->user()->faculty)->get();
+        }
+        else
+        {
+            $classrooms = Classroom::get();
+        }
+        $capacity= $request->input('capacity');
+        $capacity = explode("-", $capacity);
+        if(empty($classrooms))$classrooms='sınıf yok';
+        else {
+        foreach ($classrooms as $key=>$classroom)
+        {
+            if($classroom->capacity<$capacity[0] or $classroom->capacity>$capacity[1]) unset($classrooms[$key]);
+            $spec_json = json_decode($classroom->spec_json);
+            if($request->input('blackboard') == 1 and $spec_json->blackboard=='') unset($classrooms[$key]);
+            if($request->input('special_seats') == 1 and $spec_json->special_seats=='') unset($classrooms[$key]);
+            if($request->input('proffessor_chair') == 1 and $spec_json->proffessor_chair=='') unset($classrooms[$key]);
+            if($request->input('projector') == 1 and $spec_json->projector=='') unset($classrooms[$key]);
+            if($request->input('smartboard') == 1 and $spec_json->smartboard=='') unset($classrooms[$key]);
+            if($request->input('internet') == 1 and $spec_json->internet=='') unset($classrooms[$key]);
+            if($request->input('pc') == 1 and $spec_json->pc=='') unset($classrooms[$key]);
+            if($request->input('webcam') == 1 and $spec_json->webcam=='') unset($classrooms[$key]);
+            if($request->input('speakers') == 1 and $spec_json->speakers=='') unset($classrooms[$key]);
+            if($request->input('ac') == 1 and $spec_json->ac=='') unset($classrooms[$key]);
+        }
+        }
+        $timetable = array();
+        foreach ($classrooms as $key=>$classroom)
+        {
+            $temp = Timetable::where('classroom_id',$classroom->id)->get();
+            if(!$temp->isEmpty())array_push($timetable,$temp);
+        }
+//        $data = $request->input();
+        if($timetable == array())$success = 0; else $success = 1;
+
+        return response()->json([
+            'success'=>$success,
+            'classrooms'=>$classrooms,
+            'timetable'=>$timetable
+        ]);
+    }
 
 }
