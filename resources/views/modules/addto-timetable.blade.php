@@ -412,11 +412,9 @@
                                     <!--begin::Input-->
                                     <select class="form-select form-select-solid fw-bolder" data-kt-select2="true"
                                             data-placeholder="Seç"
-                                            data-hide-search="true" id="ders_selectlist">
-                                        <option value="">asdasd</option>
-                                        <option value="">asdasd</option>
-                                        <option value="">asdasd</option>
-                                        <option value="">asdasd</option>
+                                            data-hide-search="true" id="classroom_selectlist" onchange="onclassroomchange()">
+                                        <option>Seç</option>
+
                                     </select>
                                     <!--end::Input-->
                                 </div>
@@ -429,7 +427,7 @@
                                     <!--begin::Input-->
                                     <select class="form-select form-select-solid fw-bolder" data-kt-select2="true"
                                             data-placeholder="Seç"
-                                            data-hide-search="true">
+                                            data-hide-search="true" id="day_selectlist" onchange="onclassroomchange()">
                                             <option value="monday">Pazartesi</option>
                                             <option value="tuesday">Salı</option>
                                             <option value="wednesday">Çarşamba</option>
@@ -448,8 +446,8 @@
                                     <select class="form-select form-select-solid fw-bolder" data-kt-select2="true"
                                             data-placeholder="Seç"
                                             data-hide-search="true">
-                                        @for($i = 9;$i<19;$i++)
-                                            <option value="@if($i == 9) 0{{ $i }}:00 @else {{ $i }}:00 @endif">@if($i == 9) 0{{ $i }}:00 @else {{ $i }}:00 @endif</option>
+                                        @for($i = 9;$i<18;$i++)
+                                            <option id="@if($i == 9) time_0{{ $i }}:00:00 @else time_{{ $i }}:00:00 @endif" value="@if($i == 9) 0{{ $i }}:00 @else {{ $i }}:00 @endif">@if($i == 9) 0{{ $i }}:00 @else {{ $i }}:00 @endif</option>
                                         @endfor
                                     </select>
                                     <!--end::Input-->
@@ -464,8 +462,8 @@
                                     <select class="form-select form-select-solid fw-bolder" data-kt-select2="true"
                                             data-placeholder="Seç"
                                             data-hide-search="true">
-                                        @for($i = 9;$i<19;$i++)
-                                            <option value="@if($i == 9) 0{{ $i }}:00 @else {{ $i }}:00 @endif">@if($i == 9) 0{{ $i }}:00 @else {{ $i }}:00 @endif</option>
+                                        @for($i = 10;$i<19;$i++)
+                                            <option id="timeend_{{$i}}:00:00" value="{{ $i }}:00">{{ $i }}:00</option>
                                         @endfor
                                     </select>
                                     <!--end::Input-->
@@ -742,5 +740,45 @@
 @include('layouts.js')
 
 </body>
+<script>
+    function onclassroomchange()
+    {
+        var classroom_id = document.getElementById("classroom_selectlist").value;
+        let temp = window.timetable;
+        console.log('Sınıf ID: ', classroom_id);
+        var currentclassarray = '';
+        temp.forEach(function (element, index){
+            if(element[0].classroom_id == classroom_id){
+                currentclassarray = element;
+            }
+        })
+        var day = document.getElementById("day_selectlist").value;
+        console.log(day);
+        var currentdayarray = '';
+        currentclassarray.forEach(function (element){
+            if(element.day == day){
+                currentdayarray = element;
+            }
+        })
+        console.log(currentdayarray);
+        if(currentdayarray != '')
+        {
+            if(Array.isArray(currentdayarray))
+            {
+
+
+            currentdayarray.forEach(function (element) {
+                console.log(element);
+            })
+            }
+            else
+            {
+                document.getElementById("time_09:00:00").disabled = true;
+                document.getElementById("timeend_10:00:00").disabled = true;
+            }
+        }
+
+    }
+</script>
 <!--end::Body-->
 </html>

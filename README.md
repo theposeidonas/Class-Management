@@ -41,6 +41,9 @@ Takım 4 kişiden oluşur, bunlar;
 
 ## Versiyon Geçmişi
 
+#### v0.9.1
+* Ders planı ekleme modülü geliştirmesi
+
 #### v0.9.0
 * Sınıflara fakülteler eklendi
 * Sınıf fakülteye göre filtreleme eklendi (Listeleme sayfasında)

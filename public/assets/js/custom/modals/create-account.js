@@ -83,13 +83,24 @@ var KTCreateAccount = function () {
                             success : function (data) {
                                 var result = JSON.parse(data);
                                 console.log(result);
-                                // var classrooms = result.classrooms;
-                                // /* Remove all options from the select list */
-                                // $('#ders_selectlist').empty();
-                                // classrooms.forEach()
-                                // {
-                                //     $("#ders_selectlist").append(new Option("Merhaba", "Değer"));
-                                // }
+                                if(result.success === 1)
+                                {
+                                var classrooms = result.classrooms;
+                                 /* Remove all options from the select list */
+                                $('#classroom_selectlist').empty();
+                                classrooms.forEach(function(element) {
+                                    $('#classroom_selectlist').append(`<option value="${element.id}">
+                                       ${element.title}
+                                  </option>`);
+                                })
+                                    let timetable;
+                                window.timetable = result.timetable;
+                                                                   }
+                                else
+                                {
+                                    $('#classroom_selectlist').empty();
+                                }
+
                             }
                         });
 
