@@ -443,11 +443,11 @@
                                     <label class="form-label required">Ders Başlama saati</label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <select class="form-select form-select-solid fw-bolder" data-kt-select2="true"
+                                    <select class="form-select form-select-solid fw-bolder" id="timestart" data-kt-select2="true"
                                             data-placeholder="Seç"
                                             data-hide-search="true">
                                         @for($i = 9;$i<18;$i++)
-                                            <option id="@if($i == 9) time_0{{ $i }}:00:00 @else time_{{ $i }}:00:00 @endif" value="@if($i == 9) 0{{ $i }}:00 @else {{ $i }}:00 @endif">@if($i == 9) 0{{ $i }}:00 @else {{ $i }}:00 @endif</option>
+                                            <option @if($i == 9) id="time_0{{ $i }}:00:00" @else id="{{'time_'. $i }}:00:00" @endif" value="@if($i == 9) 0{{ $i }}:00 @else {{ $i }}:00 @endif">@if($i == 9) 0{{ $i }}:00 @else {{ $i }}:00 @endif</option>
                                         @endfor
                                     </select>
                                     <!--end::Input-->
@@ -461,7 +461,7 @@
                                     <!--begin::Input-->
                                     <select class="form-select form-select-solid fw-bolder" data-kt-select2="true"
                                             data-placeholder="Seç"
-                                            data-hide-search="true">
+                                            data-hide-search="true" id="timeend">
                                         @for($i = 10;$i<19;$i++)
                                             <option id="timeend_{{$i}}:00:00" value="{{ $i }}:00">{{ $i }}:00</option>
                                         @endfor
@@ -484,140 +484,38 @@
                                     <h2 class="fw-bolder text-dark">Gözden Geçir</h2>
                                     <!--end::Title-->
                                     <!--begin::Notice-->
-                                    <div class="text-muted fw-bold fs-6">If you need more info, please check out
-                                        <a href="#" class="text-primary fw-bolder">Help Page</a>.</div>
+                                    <div class="text-muted fw-bold fs-6">Seçimlerinizi gözden geçirin.</div>
                                     <!--end::Notice-->
                                 </div>
                                 <!--end::Heading-->
                                 <!--begin::Input group-->
                                 <div class="d-flex flex-column mb-7 fv-row">
                                     <!--begin::Label-->
-                                    <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                        <span class="required">Name On Card</span>
-                                        <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify a card holder's name"></i>
+                                    <label class="d-flex align-items-center fs-4 fw-bold form-label mb-2">
+                                        <span>Sınıf Seçimi: <p>TP201</p></span>
+
+
                                     </label>
                                     <!--end::Label-->
-                                    <input type="text" class="form-control form-control-solid" placeholder="" name="card_name" value="Max Doe">
-                                </div>
-                                <!--end::Input group-->
-                                <!--begin::Input group-->
-                                <div class="d-flex flex-column mb-7 fv-row">
-                                    <!--begin::Label-->
-                                    <label class="required fs-6 fw-bold form-label mb-2">Card Number</label>
-                                    <!--end::Label-->
-                                    <!--begin::Input wrapper-->
-                                    <div class="position-relative">
-                                        <!--begin::Input-->
-                                        <input type="text" class="form-control form-control-solid" placeholder="Enter card number" name="card_number" value="4111 1111 1111 1111">
-                                        <!--end::Input-->
-                                        <!--begin::Card logos-->
-                                        <div class="position-absolute translate-middle-y top-50 end-0 me-5">
-                                            <img src="../../../assets/media/svg/card-logos/dark/visa.svg" alt="" class="h-25px">
-                                            <img src="../../../assets/media/svg/card-logos/dark/mastercard.svg" alt="" class="h-25px">
-                                            <img src="../../../assets/media/svg/card-logos/dark/american-express.svg" alt="" class="h-25px">
-                                        </div>
-                                        <!--end::Card logos-->
-                                    </div>
-                                    <!--end::Input wrapper-->
-                                </div>
-                                <!--end::Input group-->
-                                <!--begin::Input group-->
-                                <div class="row mb-10">
-                                    <!--begin::Col-->
-                                    <div class="col-md-8 fv-row">
-                                        <!--begin::Label-->
-                                        <label class="required fs-6 fw-bold form-label mb-2">Expiration Date</label>
-                                        <!--end::Label-->
-                                        <!--begin::Row-->
-                                        <div class="row fv-row">
-                                            <!--begin::Col-->
-                                            <div class="col-6">
-                                                <select name="card_expiry_month" class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Month">
-                                                    <option></option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                    <option value="5">5</option>
-                                                    <option value="6">6</option>
-                                                    <option value="7">7</option>
-                                                    <option value="8">8</option>
-                                                    <option value="9">9</option>
-                                                    <option value="10">10</option>
-                                                    <option value="11">11</option>
-                                                    <option value="12">12</option>
-                                                </select>
-                                            </div>
-                                            <!--end::Col-->
-                                            <!--begin::Col-->
-                                            <div class="col-6">
-                                                <select name="card_expiry_year" class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Year">
-                                                    <option></option>
-                                                    <option value="2021">2021</option>
-                                                    <option value="2022">2022</option>
-                                                    <option value="2023">2023</option>
-                                                    <option value="2024">2024</option>
-                                                    <option value="2025">2025</option>
-                                                    <option value="2026">2026</option>
-                                                    <option value="2027">2027</option>
-                                                    <option value="2028">2028</option>
-                                                    <option value="2029">2029</option>
-                                                    <option value="2030">2030</option>
-                                                    <option value="2031">2031</option>
-                                                </select>
-                                            </div>
-                                            <!--end::Col-->
-                                        </div>
-                                        <!--end::Row-->
-                                    </div>
-                                    <!--end::Col-->
-                                    <!--begin::Col-->
-                                    <div class="col-md-4 fv-row">
-                                        <!--begin::Label-->
-                                        <label class="d-flex align-items-center fs-6 fw-bold form-label mb-2">
-                                            <span class="required">CVV</span>
-                                            <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Enter a card CVV code"></i>
-                                        </label>
-                                        <!--end::Label-->
-                                        <!--begin::Input wrapper-->
-                                        <div class="position-relative">
-                                            <!--begin::Input-->
-                                            <input type="text" class="form-control form-control-solid" minlength="3" maxlength="4" placeholder="CVV" name="card_cvv">
-                                            <!--end::Input-->
-                                            <!--begin::CVV icon-->
-                                            <div class="position-absolute translate-middle-y top-50 end-0 me-3">
-                                                <!--begin::Svg Icon | path: icons/duotune/finance/fin002.svg-->
-                                                <span class="svg-icon svg-icon-2hx">
-															<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none">
-																<path d="M22 7H2V11H22V7Z" fill="black"></path>
-																<path opacity="0.3" d="M21 19H3C2.4 19 2 18.6 2 18V6C2 5.4 2.4 5 3 5H21C21.6 5 22 5.4 22 6V18C22 18.6 21.6 19 21 19ZM14 14C14 13.4 13.6 13 13 13H5C4.4 13 4 13.4 4 14C4 14.6 4.4 15 5 15H13C13.6 15 14 14.6 14 14ZM16 15.5C16 16.3 16.7 17 17.5 17H18.5C19.3 17 20 16.3 20 15.5C20 14.7 19.3 14 18.5 14H17.5C16.7 14 16 14.7 16 15.5Z" fill="black"></path>
-															</svg>
-														</span>
-                                                <!--end::Svg Icon-->
-                                            </div>
-                                            <!--end::CVV icon-->
-                                        </div>
-                                        <!--end::Input wrapper-->
-                                    </div>
-                                    <!--end::Col-->
-                                </div>
-                                <!--end::Input group-->
-                                <!--begin::Input group-->
-                                <div class="d-flex flex-stack">
-                                    <!--begin::Label-->
-                                    <div class="me-5">
-                                        <label class="fs-6 fw-bold form-label">Save Card for further billing?</label>
-                                        <div class="fs-7 fw-bold text-muted">If you need more info, please check budget planning</div>
-                                    </div>
-                                    <!--end::Label-->
-                                    <!--begin::Switch-->
-                                    <label class="form-check form-switch form-check-custom form-check-solid">
-                                        <input class="form-check-input" type="checkbox" value="1" checked="checked">
-                                        <span class="form-check-label fw-bold text-muted">Save Card</span>
+ <!--begin::Label-->
+                                    <label class="d-flex align-items-center fs-4 fw-bold form-label mb-2">
+                                        <span>Gün Seçimi: <p>Pazartesi</p></span>
+
+
                                     </label>
-                                    <!--end::Switch-->
+                                    <!--end::Label-->
+ <!--begin::Label-->
+                                    <label class="d-flex align-items-center fs-4 fw-bold form-label mb-2">
+                                        <span>Saatler: <p>09:00 - 10:00</p></span>
+
+
+                                    </label>
+                                    <!--end::Label-->
+
+
                                 </div>
                                 <!--end::Input group-->
+
                             </div>
                             <!--end::Wrapper-->
                         </div>
@@ -691,7 +589,7 @@
                             </div>
                             <div>
                                 <button type="button" class="btn btn-lg btn-primary" data-kt-stepper-action="submit">
-											<span class="indicator-label">Submit
+											<span class="indicator-label">Tamamla
                                                 <!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
 											<span class="svg-icon svg-icon-4 ms-2">
 												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none">
@@ -754,27 +652,45 @@
         })
         var day = document.getElementById("day_selectlist").value;
         console.log(day);
-        var currentdayarray = '';
+        var currentdayarray = [];
         currentclassarray.forEach(function (element){
             if(element.day == day){
-                currentdayarray = element;
+                currentdayarray.push(element);
             }
         })
         console.log(currentdayarray);
-        if(currentdayarray != '')
+        if(currentdayarray.length !== 0)
         {
+            console.log("Current day array boş değil");
+            for (var option of document.getElementById("timestart").options) {
+                option.disabled = false;
+            }
+            for (var option of document.getElementById("timeend").options) {
+                option.disabled = false;
+            }
             if(Array.isArray(currentdayarray))
             {
 
 
             currentdayarray.forEach(function (element) {
                 console.log(element);
+                document.getElementById("time_"+element.time).disabled = true;
+                document.getElementById("timeend_"+element.time_end).disabled = true;
             })
             }
             else
             {
-                document.getElementById("time_09:00:00").disabled = true;
-                document.getElementById("timeend_10:00:00").disabled = true;
+                document.getElementById("time_"+currentdayarray.time).disabled = true;
+                document.getElementById("timeend_"+currentdayarray.time_end).disabled = true;
+            }
+        }
+        else {
+            console.log("Current day array boş");
+            for (var option of document.getElementById("timestart").options) {
+                option.disabled = false;
+            }
+            for (var option of document.getElementById("timeend").options) {
+                option.disabled = false;
             }
         }
 

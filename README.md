@@ -41,6 +41,9 @@ Takım 4 kişiden oluşur, bunlar;
 
 ## Versiyon Geçmişi
 
+#### v0.9.2
+* Ders planı ekleme modülü geliştirmesi
+
 #### v0.9.1
 * Ders planı ekleme modülü geliştirmesi
 
