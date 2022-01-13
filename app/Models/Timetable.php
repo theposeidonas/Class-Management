@@ -9,6 +9,7 @@ class Timetable extends Model
 {
     use HasFactory;
     protected $table = 'timetable';
+    public $timestamps = false;
     /**
      * The attributes that are mass assignable.
      *
@@ -19,7 +20,8 @@ class Timetable extends Model
         'lesson_id',
         'user_id',
         'day',
-        'time'
+        'time',
+        'time_end'
 
 
     ];

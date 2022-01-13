@@ -9,6 +9,7 @@ use App\Models\Timetable;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Ramsey\Uuid\Type\Time;
 
 class ModulesController extends Controller
 {
@@ -122,7 +123,7 @@ class ModulesController extends Controller
             if(!$temp->isEmpty())array_push($timetable,$temp);
         }
 //        $data = $request->input();
-        if($timetable == array())$success = 0; else $success = 1;
+      $success=1;
 
         return response()->json([
             'success'=>$success,
@@ -130,5 +131,62 @@ class ModulesController extends Controller
             'timetable'=>$timetable
         ]);
     }
+    public function addtotimetablenew(Request $request)
+    {
+//        $checkingtwin = Timetable::where('lesson_id', $request->input('lesson_id'))->where('classroom_id',$request->input('classroom_id'))->where('day',$request->input('day'))->where('time',$request->input('time'))->first();
+//        if(empty($checkingtwin))return response()->json([
+//            'success'=>'0'
+//        ]);
+        $timestart = substr($request->input('time'),0 ,2);
+        $timeend = substr($request->input('time_end'),0,2);
+        $i = $timeend-$timestart;
+        if($i==1)
+        {
+        $timetable = new Timetable();
+        $timetable->user_id = auth()->user()->id;
+        $timetable->day = $request->input('day');
+        $timetable->lesson_id = $request->input('lesson_id');
+        $timetable->classroom_id = $request->input('classroom_id');
+        $timetable->time = $request->input('time');
+        $timetable->time_end = $request->input('time_end');
+
+        if($timetable->save()) return response()->json([
+            'success'=>'1'
+        ]);
+        else return response()->json([
+            'success'=>'0'
+        ]);
+        }
+        else if ($i< 1) return response()->json([
+            'success'=>'0'
+        ]);
+
+        else
+        {
+
+            $timestart = substr($request->input('time'),0 ,2);
+            $timeend = substr($request->input('time_end'),0,2);
+           while($timestart<$timeend)
+            {
+            $timetable = new Timetable();
+            $timetable->user_id = auth()->user()->id;
+            $timetable->day = $request->input('day');
+            $timetable->lesson_id = $request->input('lesson_id');
+            $timetable->classroom_id = $request->input('classroom_id');
+            $timetable->time = $timestart.':00:00';
+                $timestart++;
+            $timetable->time_end = $timestart.':00:00';
+
+                $timetable->save();
+        }
+            return response()->json([
+                'success'=>'1'
+            ]);
+
+
+        }
+        }
+
+
 
 }

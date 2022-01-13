@@ -115,6 +115,10 @@ var KTCreateAccount = function () {
 
 
                     }
+                    if (e.getCurrentStepIndex() == 3) {
+                        window.setformdetails();
+
+                    }
                     console.log("validated!"), "Valid" == t ? (e.goNext(), KTUtil.scrollTop()) : Swal.fire({
                         text: "Sorry, looks like there are some errors detected, please try again.",
                         icon: "error",

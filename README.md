@@ -20,13 +20,11 @@ atamalarını yapabileceği, çakışan dersleri kontrol edebileceği bir yönet
 
 `Sınıf Zaman Tablosu: Aktif`
 
-`Ders Planlama: Yapım Aşamasında`
+`Ders Planlama: Aktif`
 
 `Bildirim Modülü: Aktif`
 
 `Sistem Yedekleme: Aktif`
-
-`Hızlı Arama: Yapım Aşamasında`
 
 `Kullanım Klavuzu ve Dökümantasyon: Oluşturulmadı`
 
@@ -40,6 +38,14 @@ Takım 4 kişiden oluşur, bunlar;
 * Doğacan Usta
 
 ## Versiyon Geçmişi
+
+#### v0.9.7
+* Database bağlantısı düzeltildi (ENV)
+* Ders planı ekleme modülü tamamlandı
+* Ajax sorgusu ile eklenme kısmı tamamlandı
+* Toolbar güncellendi
+* Rotalara ekleme yapıldı
+* Genel kontroller yapıldı.
 
 #### v0.9.2
 * Ders planı ekleme modülü geliştirmesi
@@ -236,7 +242,7 @@ Takım 4 kişiden oluşur, bunlar;
 
 ### Yapım Aşamasında Olanlar
 
-- Toolbar Hızlı Arama
+- Ana Sayfa
 
 ### License
 

@@ -140,7 +140,7 @@
                 <!--begin::Wrapper-->
                 <div class="w-lg-700px p-10 p-lg-15 mx-auto">
                     <!--begin::Form-->
-                    <form class="my-auto pb-5" novalidate="novalidate" id="kt_create_account_form">
+                    <form class="my-auto pb-5" novalidate="novalidate" id="kt_create_account_form" action="{{ route('addtotimetablenew') }}">
                         <!--begin::Step 1-->
                         <div class="current" data-kt-stepper-element="content">
                             <!--begin::Wrapper-->
@@ -463,7 +463,7 @@
                                             data-placeholder="Seç"
                                             data-hide-search="true" id="timeend">
                                         @for($i = 10;$i<19;$i++)
-                                            <option id="timeend_{{$i}}:00:00" value="{{ $i }}:00">{{ $i }}:00</option>
+                                            <option id="timeend_{{$i}}:00:00" value="{{ $i }}:00:00">{{ $i }}:00</option>
                                         @endfor
                                     </select>
                                     <!--end::Input-->
@@ -492,21 +492,27 @@
                                 <div class="d-flex flex-column mb-7 fv-row">
                                     <!--begin::Label-->
                                     <label class="d-flex align-items-center fs-4 fw-bold form-label mb-2">
-                                        <span>Sınıf Seçimi: <p>TP201</p></span>
+                                        <span>Ders Seçimi: <p id="selected_lesson">MUH101</p></span>
+
+
+                                    </label>
+                                    <!--end::Label--> <!--begin::Label-->
+                                    <label class="d-flex align-items-center fs-4 fw-bold form-label mb-2">
+                                        <span>Sınıf Seçimi: <p id="selected_class">TP201</p></span>
 
 
                                     </label>
                                     <!--end::Label-->
  <!--begin::Label-->
                                     <label class="d-flex align-items-center fs-4 fw-bold form-label mb-2">
-                                        <span>Gün Seçimi: <p>Pazartesi</p></span>
+                                        <span>Gün Seçimi: <p id="selected_day">Pazartesi</p></span>
 
 
                                     </label>
                                     <!--end::Label-->
  <!--begin::Label-->
                                     <label class="d-flex align-items-center fs-4 fw-bold form-label mb-2">
-                                        <span>Saatler: <p>09:00 - 10:00</p></span>
+                                        <span>Saatler: <p id="selected_time">09:00 - 10:00</p></span>
 
 
                                     </label>
@@ -527,22 +533,40 @@
                                 <!--begin::Heading-->
                                 <div class="pb-8 pb-lg-10">
                                     <!--begin::Title-->
-                                    <h2 class="fw-bolder text-dark">Your Are Done!</h2>
+                                    <h2 class="fw-bolder text-dark">Tamam!</h2>
                                     <!--end::Title-->
-                                    <!--begin::Notice-->
-                                    <div class="text-muted fw-bold fs-6">If you need more info, please
-                                        <a href="../sign-in/basic.html" class="link-primary fw-bolder">Sign In</a>.</div>
-                                    <!--end::Notice-->
-                                </div>
+
                                 <!--end::Heading-->
                                 <!--begin::Body-->
                                 <div class="mb-0">
                                     <!--begin::Text-->
-                                    <div class="fs-6 text-gray-600 mb-5">Writing headlines for blog posts is as much an art as it is a science and probably warrants its own post, but for all advise is with what works for your great &amp; amazing audience.</div>
+                                    <div class="fs-6 text-gray-600 mb-5">Eğer yardıma ihtiyacınız varsa lütfen kullanım klavuzuna gözatın</div>
                                     <!--end::Text-->
                                     <!--begin::Alert-->
                                     <!--begin::Notice-->
-                                    <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6">
+                                    <div id="success" class="notice d-flex bg-light-success rounded border-success border border-dashed p-6">
+                                        <!--begin::Icon-->
+                                        <!--begin::Svg Icon | path: icons/duotune/general/gen044.svg-->
+                                        <span class="svg-icon svg-icon-2tx svg-icon-success me-4">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<rect opacity="0.3" x="2" y="2" width="20" height="20" rx="10" fill="black"/>
+<path d="M10.4343 12.4343L8.75 10.75C8.33579 10.3358 7.66421 10.3358 7.25 10.75C6.83579 11.1642 6.83579 11.8358 7.25 12.25L10.2929 15.2929C10.6834 15.6834 11.3166 15.6834 11.7071 15.2929L17.25 9.75C17.6642 9.33579 17.6642 8.66421 17.25 8.25C16.8358 7.83579 16.1642 7.83579 15.75 8.25L11.5657 12.4343C11.2533 12.7467 10.7467 12.7467 10.4343 12.4343Z" fill="black"/>
+</svg>
+												</span>
+                                        <!--end::Svg Icon-->
+                                        <!--end::Icon-->
+                                        <!--begin::Wrapper-->
+                                        <div class="d-flex flex-stack flex-grow-1">
+                                            <!--begin::Content-->
+                                            <div class="fw-bold">
+                                                <h4 class="text-gray-900 fw-bolder">Kayıt Eklendi!</h4>
+                                                <div class="fs-6 text-gray-700">Kaydınız başarılı şekilde eklendi</div>
+                                            </div>
+                                            <!--end::Content-->
+                                        </div>
+                                        <!--end::Wrapper-->
+                                    </div>
+                                    <div id="fail" class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6">
                                         <!--begin::Icon-->
                                         <!--begin::Svg Icon | path: icons/duotune/general/gen044.svg-->
                                         <span class="svg-icon svg-icon-2tx svg-icon-warning me-4">
@@ -558,9 +582,8 @@
                                         <div class="d-flex flex-stack flex-grow-1">
                                             <!--begin::Content-->
                                             <div class="fw-bold">
-                                                <h4 class="text-gray-900 fw-bolder">We need your attention!</h4>
-                                                <div class="fs-6 text-gray-700">To start using great tools, please, please
-                                                    <a href="#" class="fw-bolder">Create Team Platform</a></div>
+                                                <h4 class="text-gray-900 fw-bolder">Kayıt eklenemedi!</h4>
+                                                <div class="fs-6 text-gray-700">Lütfen bilgileri kontrol ederek tekrar deneyiniz. Saatler uyuşmuyor olabilir.</div>
                                             </div>
                                             <!--end::Content-->
                                         </div>
@@ -572,6 +595,7 @@
                                 <!--end::Body-->
                             </div>
                             <!--end::Wrapper-->
+                        </div>
                         </div>
                         <!--end::Step 5-->
                         <!--begin::Actions-->
@@ -588,7 +612,7 @@
                                     <!--end::Svg Icon-->Geri</button>
                             </div>
                             <div>
-                                <button type="button" class="btn btn-lg btn-primary" data-kt-stepper-action="submit">
+                                <button type="button" class="btn btn-lg btn-primary" data-kt-stepper-action="submit" onclick="sendajaxform()">
 											<span class="indicator-label">Tamamla
                                                 <!--begin::Svg Icon | path: icons/duotune/arrows/arr064.svg-->
 											<span class="svg-icon svg-icon-4 ms-2">
@@ -598,7 +622,7 @@
 												</svg>
 											</span>
                                                 <!--end::Svg Icon--></span>
-                                    <span class="indicator-progress">Please wait...
+                                    <span class="indicator-progress">Lütfen Bekleyin...
 											<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                 </button>
                                 <button type="button" class="btn btn-lg btn-primary" data-kt-stepper-action="next">Devam
@@ -613,7 +637,10 @@
                             </div>
                         </div>
                         <!--end::Actions-->
-                    </form>
+
+                        <input type="text" id="form_user_id" value="{{ auth()->user()->id }}" hidden>
+
+                        </form>
                     <!--end::Form-->
                 </div>
                 <!--end::Wrapper-->
@@ -639,6 +666,48 @@
 
 </body>
 <script>
+    function sendajaxform()
+    {
+
+       var lesson_id = document.getElementById("lesson").value;
+        var classroom_id =  document.getElementById("classroom_selectlist").value;
+        var day = document.getElementById("day_selectlist").value;
+        var time = document.getElementById("timestart").value;
+        var time_end = document.getElementById("timeend").value;
+        $.ajax({
+            type: "POST",
+            dataType:'html',
+            url : "/addtotimetablenew",
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data:{
+                lesson_id:lesson_id,
+                classroom_id:classroom_id,
+                day:day,
+                time:time,
+                time_end:time_end
+            },
+            success : function (data) {
+                data = JSON.parse(data);
+               if(data.success==1){
+                document.getElementById('fail').classList.add("d-none");
+                document.getElementById('success').classList.remove("d-none");
+               }
+                else {
+                   document.getElementById('success').classList.add("d-none");
+                   document.getElementById('fail').classList.remove("d-none");
+               }
+            }
+        });
+    }
+    function setformdetails()
+    {
+        document.getElementById('selected_lesson').innerHTML = $("#lesson option:selected").text();
+        document.getElementById('selected_class').innerHTML = $("#classroom_selectlist option:selected").text();
+        document.getElementById('selected_day').innerHTML = $("#day_selectlist option:selected").text();
+        document.getElementById('selected_time').innerHTML = $("#timestart option:selected").text() + ' - ' +$("#timeend option:selected").text();
+    }
     function onclassroomchange()
     {
         var classroom_id = document.getElementById("classroom_selectlist").value;
@@ -653,11 +722,12 @@
         var day = document.getElementById("day_selectlist").value;
         console.log(day);
         var currentdayarray = [];
-        currentclassarray.forEach(function (element){
+        if(currentclassarray.length !== 0)
+        {currentclassarray.forEach(function (element){
             if(element.day == day){
                 currentdayarray.push(element);
             }
-        })
+        })}
         console.log(currentdayarray);
         if(currentdayarray.length !== 0)
         {
