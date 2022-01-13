@@ -55,6 +55,7 @@ Route::get('/delete-backup', '\App\Http\Controllers\BackupController@delete')->n
 Route::get('/addto-timetable', '\App\Http\Controllers\ModulesController@addtotimetable')->name('addtotimetable')->middleware('auth');
 Route::post('/check-timetable', '\App\Http\Controllers\ModulesController@checktimetable')->name('checktimetable')->middleware('auth');
 Route::post('/addtotimetablenew', '\App\Http\Controllers\ModulesController@addtotimetablenew')->name('addtotimetablenew')->middleware('auth');
+Route::get('/delete-from-timetable', '\App\Http\Controllers\ModulesController@deletefromtimetable')->name('delete-from-timetable')->middleware('auth');
 
 
 

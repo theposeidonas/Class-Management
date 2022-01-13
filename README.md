@@ -39,6 +39,9 @@ Takım 4 kişiden oluşur, bunlar;
 
 ## Versiyon Geçmişi
 
+#### v0.9.8
+* Ders planı silme modülü eklendi
+
 #### v0.9.7
 * Database bağlantısı düzeltildi (ENV)
 * Ders planı ekleme modülü tamamlandı

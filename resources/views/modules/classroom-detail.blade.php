@@ -344,7 +344,7 @@
                                                     <!--end::User-->
                                                 </div>
                                                 <!--end::Info-->
-
+                                                @if(auth()->user()->id == $day->user_id) <a href="{{ route('delete-from-timetable',['id'=>$day->id]) }}" class="btn btn-light bnt-active-light-primary btn-sm">Sil</a> @endif
                                             </div>
                                             <!--end::Time-->
                                         @endforeach
@@ -372,7 +372,7 @@
                                                     <!--end::User-->
                                                 </div>
                                                 <!--end::Info-->
-
+@if(auth()->user()->id == $day->user_id) <a href="{{ route('delete-from-timetable',['id'=>$day->id]) }}" class="btn btn-light bnt-active-light-primary btn-sm">Sil</a> @endif
                                             </div>
                                             <!--end::Time-->
                                         @endforeach
@@ -400,7 +400,7 @@
                                                     <!--end::User-->
                                                 </div>
                                                 <!--end::Info-->
-
+@if(auth()->user()->id == $day->user_id) <a href="{{ route('delete-from-timetable',['id'=>$day->id]) }}" class="btn btn-light bnt-active-light-primary btn-sm">Sil</a> @endif
                                             </div>
                                             <!--end::Time-->
                                         @endforeach
@@ -428,7 +428,7 @@
                                                     <!--end::User-->
                                                 </div>
                                                 <!--end::Info-->
-
+@if(auth()->user()->id == $day->user_id) <a href="{{ route('delete-from-timetable',['id'=>$day->id]) }}" class="btn btn-light bnt-active-light-primary btn-sm">Sil</a> @endif
                                             </div>
                                             <!--end::Time-->
                                         @endforeach
@@ -456,7 +456,7 @@
                                                     <!--end::User-->
                                                 </div>
                                                 <!--end::Info-->
-
+@if(auth()->user()->id == $day->user_id) <a href="{{ route('delete-from-timetable',['id'=>$day->id]) }}" class="btn btn-light bnt-active-light-primary btn-sm">Sil</a> @endif
                                             </div>
                                             <!--end::Time-->
                                         @endforeach

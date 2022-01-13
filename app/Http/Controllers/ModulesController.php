@@ -188,5 +188,10 @@ class ModulesController extends Controller
         }
 
 
+        public function deletefromtimetable(Request $request)
+        {
+            Timetable::where('id', $request->get('id'))->delete();
+            return redirect()->back()->withErrors(['form' => 'delete']);
+        }
 
 }
