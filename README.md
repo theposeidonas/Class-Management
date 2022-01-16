@@ -248,10 +248,6 @@ Takım 4 kişiden oluşur, bunlar;
 * Initial Commit
 * Laravel Debugbar Installed
 
-### Yapım Aşamasında Olanlar
-
-- Ana Sayfa
-
 ### License
 
 The Class Management is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
