@@ -26,7 +26,7 @@ atamalarını yapabileceği, çakışan dersleri kontrol edebileceği bir yönet
 
 `Sistem Yedekleme: Aktif`
 
-`Kullanım Klavuzu ve Dökümantasyon: Oluşturulmadı`
+`Kullanım Klavuzu ve Dökümantasyon: Oluşturuldu`
 
 ### Takım
 
@@ -42,6 +42,7 @@ Takım 4 kişiden oluşur, bunlar;
 #### v1.0.0
 * Tüm modüller tamamlandı.
 * Dashboard eklendi.
+* Proje Dökümantasyonu ve Kullanım Kılavuzu oluşturuldu
 
 #### v0.9.8
 * Ders planı silme modülü eklendi

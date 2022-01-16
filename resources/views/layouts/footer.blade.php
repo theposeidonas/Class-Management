@@ -10,10 +10,10 @@
         <!--begin::Menu-->
         <ul class="menu menu-gray-600 menu-hover-primary fw-bold order-1">
             <li class="menu-item">
-                <a href="#" target="_blank" class="menu-link px-2">Dökümantasyonlar</a>
+                <a download="Class Management System Documentation.pdf" href="/assets/docs/cms-documentation.pdf" target="_blank" class="menu-link px-2">Dökümantasyonlar</a>
             </li>
             <li class="menu-item">
-                <a href="#" target="_blank" class="menu-link px-2">Kullanım Kılavuzu</a>
+                <a download="Class Management System.pdf" href="/assets/docs/cms-guide.pdf" target="_blank" class="menu-link px-2">Kullanım Kılavuzu</a>
             </li>
 
         </ul>

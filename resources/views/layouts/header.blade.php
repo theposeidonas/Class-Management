@@ -245,7 +245,7 @@
                             <div
                                 class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-rounded-0 py-lg-4 w-lg-225px">
                                 <div class="menu-item">
-                                    <a class="menu-link py-3" href="#" title="Kapsamlı kullanım kılavuzuna gözatın!"
+                                    <a class="menu-link py-3" download="Class Management System.pdf" href="/assets/docs/cms-guide.pdf" title="Kapsamlı kullanım kılavuzuna gözatın!"
                                        data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click"
                                        data-bs-placement="right">
 															<span class="menu-icon">
@@ -267,7 +267,7 @@
                                     </a>
                                 </div>
                                 <div class="menu-item">
-                                    <a class="menu-link py-3" href="#" title="Tüm dökümantasyona gözatın!"
+                                    <a class="menu-link py-3" download="Class Management System Docs.pdf" href="/assets/docs/cms-documentation.pdf" title="Tüm dökümantasyona gözatın!"
                                        data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss="click"
                                        data-bs-placement="right">
 															<span class="menu-icon">

@@ -153,7 +153,7 @@
                                     <!--end::Title-->
                                     <!--begin::Notice-->
                                     <div class="text-muted fw-bold fs-6">Eğer yardıma ihtiyacınız varsa, lütfen
-                                        <a href="#" class="link-primary fw-bolder">Kullanım Kılavuzuna</a> gözatın.</div>
+                                        <a download="Class Management System.pdf" href="/assets/docs/cms-guide.pdf" class="link-primary fw-bolder">Kullanım Kılavuzuna</a> gözatın.</div>
                                     <!--end::Notice-->
                                 </div>
                                 <!--end::Heading-->
@@ -228,7 +228,7 @@
                                     <!--end::Title-->
                                     <!--begin::Notice-->
                                     <div class="text-muted fw-bold fs-6">Eğer yardıma ihtiyacınız varsa, lütfen
-                                        <a href="#" class="link-primary fw-bolder">Kullanım Kılavuzuna</a> gözatın.</div>
+                                        <a download="Class Management System.pdf" href="/assets/docs/cms-guide.pdf" class="link-primary fw-bolder">Kullanım Kılavuzuna</a> gözatın.</div>
                                     <!--end::Notice-->
                                 </div>
                                 <!--end::Heading-->
@@ -400,7 +400,7 @@
                                     <h2 class="fw-bolder text-dark">Sınıf ve Saat Seçimi</h2>
                                     <!--end::Title-->
                                     <!--begin::Notice-->
-                                    <div class="text-muted fw-bold fs-6">Önceki yaptığınız seçimlere dayanarak size önerdiğimiz saatler ve sınıfları buradan seçin. Eğer yardıma ihtiyacınız varsa, lütfen <a href="#" class="link-primary fw-bolder">Kullanım Kılavuzuna</a> gözatın.</div>
+                                    <div class="text-muted fw-bold fs-6">Önceki yaptığınız seçimlere dayanarak size önerdiğimiz saatler ve sınıfları buradan seçin. Eğer yardıma ihtiyacınız varsa, lütfen <a download="Class Management System.pdf" href="/assets/docs/cms-guide.pdf" class="link-primary fw-bolder">Kullanım Kılavuzuna</a> gözatın.</div>
                                     <!--end::Notice-->
                                 </div>
                                 <!--end::Heading-->
@@ -651,7 +651,7 @@
                 <!--begin::Links-->
                 <div class="d-flex flex-center fw-bold fs-6">
                     <a href="{{ route('dashboard') }}" class="text-muted text-hover-primary px-2" target="_blank">Ana Sayfa</a>
-                    <a href="#" class="text-muted text-hover-primary px-2" target="_blank">Yardım</a>
+                    <a download="Class Management System.pdf" href="/assets/docs/cms-guide.pdf" class="text-muted text-hover-primary px-2" target="_blank">Yardım</a>
 
                 </div>
                 <!--end::Links-->
