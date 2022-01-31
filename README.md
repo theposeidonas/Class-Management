@@ -28,14 +28,6 @@ atamalarını yapabileceği, çakışan dersleri kontrol edebileceği bir yönet
 
 `Kullanım Klavuzu ve Dökümantasyon: Oluşturuldu`
 
-### Takım
-
-Takım 4 kişiden oluşur, bunlar;
-
-* Baran Arda
-* Mehmet Baysal
-* Enis Göktaş
-* Doğacan Usta
 
 ## Versiyon Geçmişi
 
